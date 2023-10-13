@@ -47,6 +47,7 @@ for (i in c("X10302", "X10303", "X10304", "X10321")) {
 }
 
 
+
 data_merged_rol$YY <- as.numeric(data_merged_rol$YY)
 # Bayesian network
 variables_needed <- c("drainage_X10302", "drainage_X10303", "drainage_X10304", "drainage_X10321",
@@ -108,39 +109,39 @@ network <- set.arc(network, "drainage_X10304", "drainage_X10303")
 network <- set.arc(network, "drainage_X10303", "drainage_X10302")
 network <- set.arc(network, "drainage_X10321", "drainage_X10302")
 
-# fitting bayesian network for whole data set (parameters are estimated via maximum likelihood (method = "mle-g"))
-fitted_network <- bn.fit(network, data = data_merged_rol[, variables_needed])
-test1 <- lm(drainage_X10303 ~ drainage_X10304 + rol_airtmp_X10303 + rol_glorad_X10303 + rol_groundwaterdepth_X10303 +
-              rol_precip_X10303 + rol_qinfiltration_X10303 + rol_relhum_X10303 + rol_snowstorage_X10303 +
-              rol_soilwaterrootzone_X10303 + rol_soilwaterunsatzone_X10303 + YY, data = data_merged_rol)
-test2 <- lm(drainage_X10302 ~ drainage_X10303 + drainage_X10321 + rol_airtmp_X10302 + rol_glorad_X10302 + rol_groundwaterdepth_X10302 +
-              rol_precip_X10302 + rol_qinfiltration_X10302 + rol_relhum_X10302 + rol_snowstorage_X10302 +
-              rol_soilwaterrootzone_X10302 + rol_soilwaterunsatzone_X10302 + YY, data = data_merged_rol)
 
+# separated according to hydrological half-years
+# create data sets
+data_merged_rol_summer <- data_merged_rol[data_merged_rol$MM >= 5 & data_merged_rol$MM <= 10, ]
+data_merged_rol_winter <- data_merged_rol[data_merged_rol$MM < 5 | data_merged_rol$MM > 10, ]
 
+# fitting bayesian network for winter (parameters are estimated via maximum likelihood (method = "mle-g"))
+fitted_network_winter <- bn.fit(network, data = data_merged_rol_winter[, variables_needed])
 
 ## model fit
-# bn.fit.qqplot(fitted_network)
-# qq-Plot for low level observations
-bn_model_diag_qq_lowlevel(bn.fit = fitted_network, data = data_merged_rol, halfyear = "summer") # "summer" for halfyear is random for choosing the NM7Q values
-bn_model_diag_predic(bn.fit = fitted_network, data = data_merged_rol)
-# bn.fit.xyplot(fitted_network)
-# bn.fit.histogram(fitted_network)
-
-# visualization
-plot_obj <- graphviz.plot(fitted_network)
-plot(plot_obj)
+bn_model_diag_qq_lowlevel(bn.fit = fitted_network_winter, data = data_merged_rol_winter, halfyear = "winter")
+bn_model_diag_predic(bn.fit = fitted_network_winter, data = data_merged_rol_winter)
 
 
 
 
-# examine normal distribution assumption
-i <- 3
-ggplot(data_merged_rol, aes(x = get(variables_needed[i]))) +
-  geom_density() +
-  labs(x = variables_needed[i])
 
 
-# information criteria
-# BIC(fitted_network, data = na.omit(data_merged_rol[, variables_needed]))
-# AIC(fitted_network, data = na.omit(data_merged_rol[, variables_needed]))
+
+
+
+
+# fitting bayesian network for summer (parameters are estimated via maximum likelihood (method = "mle-g"))
+fitted_network_summer <- bn.fit(network, data = data_merged_rol_summer[, variables_needed])
+
+## model fit
+bn_model_diag_qq_lowlevel(bn.fit = fitted_network_summer, data = data_merged_rol_summer, halfyear = "summer")
+bn_model_diag_predic(bn.fit = fitted_network_summer, data = data_merged_rol_summer)
+
+
+
+
+
+
+
+
