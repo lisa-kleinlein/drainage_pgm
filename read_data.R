@@ -16,26 +16,6 @@ data_soilwaterrootzone <- read.table("soilwaterrootzone_1981_2010_weight_weight_
 data_soilwaterunsatzone <- read.table("soilwaterunsatzone_1981_2010_weight_weight_sub.txt", header = TRUE)
 
 # rename columnnames for better identification
-# # faster version?
-# variablenames <- c("drainage", "airtmp", "glorad", "groundwaterdepth", "precip", "qinfiltration",
-#                    "relhum", "snowstorage", "soilwaterrootzone", "soilwaterunsatzone")
-# for (i in variablenames) {
-#   assign(paste0("data_", i, "_named"), get(paste0("data_", i)))
-#   for (j in 1:length(colnames(get(paste0("data_", i, "_named"))))) {
-#     if (str_detect(colnames(get(paste0("data_", i, "_named")))[j], "X")) {
-#       assign(colnames(get(paste0("data_", i, "_named")))[j],
-#              paste0(i, "_", colnames(get(paste0("data_", i, "_named")))[j]))
-#     }
-#   }
-#   # logical_vec <- colnames(get(paste0("data_", i, "_named"))) %in% str_subset(colnames(get(paste0("data_", i, "_named"))), "X")
-#   # colnames_tmp <- paste0(i, "_", colnames(get(paste0("data_", i, "_named")))[colnames(get(paste0("data_", i, "_named"))) %in% str_subset(colnames(get(paste0("data_", i, "_named"))), "X")])
-#   # # assign(colnames(get(paste0("data_", i, "_named")))[colnames(get(paste0("data_", i, "_named"))) %in% str_subset(colnames(get(paste0("data_", i, "_named"))), "X")],
-#   # #        colnames_tmp)
-#   # assign(colnames(get(paste0("data_", i, "_named")))[logical_vec][1], colnames_tmp[1])
-#   # 
-# }
-
-# long version
 data_drainage_named <- data_drainage
 colnames(data_drainage_named)[colnames(data_drainage_named) %in% str_subset(colnames(data_drainage_named), "X")] <-
   paste0("drainage_", colnames(data_drainage_named)[colnames(data_drainage_named) %in% str_subset(colnames(data_drainage_named), "X")]) 
@@ -96,4 +76,7 @@ data_merged <- merge(data_merged, data_soilwaterrootzone_named, by.x = c("YY", "
 data_merged <- merge(data_merged, data_soilwaterunsatzone_named, by.x = c("YY", "MM", "DD", "HH"), 
                      by.y = c("YY", "MM", "DD", "HH"), all.x = TRUE, all.y = TRUE)
 
+data_merged <- data_merged[order(data_merged$YY, data_merged$MM, data_merged$DD, data_merged$HH),]
+# add row ind
+data_merged$ind <- 1:nrow(data_merged)
 saveRDS(data_merged, "data_merged.rds")
