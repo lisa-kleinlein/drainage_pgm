@@ -9,6 +9,7 @@ library(bnlearn)
 library(Rgraphviz)
 library(ggplot2)
 library(mgcv)
+library(interactions)
 source("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/drainage_pgm/functions.R")
 
 # load data
@@ -17,8 +18,8 @@ data_merged_rol <- readRDS("data_merged_rol.rds")
 setwd("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/drainage_pgm/kbj")
 data_merged_rol_kbj <- readRDS("data_merged_rol_kbj.rds")
 # summer data set
-data_merged_rol_summer <- data_merged_rol[data_merged_rol$MM >= 5 | data_merged_rol$MM <= 10, ]
-data_merged_rol_summer_kbj <- data_merged_rol_kbj[data_merged_rol_kbj$MM >= 5 | data_merged_rol_kbj$MM <= 10, ]
+data_merged_rol_summer <- data_merged_rol[data_merged_rol$MM >= 5 & data_merged_rol$MM <= 10, ]
+data_merged_rol_summer_kbj <- data_merged_rol_kbj[data_merged_rol_kbj$MM >= 5 & data_merged_rol_kbj$MM <= 10, ]
 
 data_merged_rol_summer$YY <- as.numeric(data_merged_rol_summer$YY)
 data_merged_rol_summer_kbj$YY <- as.numeric(data_merged_rol_summer_kbj$YY)
@@ -63,59 +64,36 @@ formula_04 <- drainage_X10304 ~ YY +
   s(rol_precip_X10304, bs = "ps") + s(rol_qinfiltration_X10304, bs = "ps") + s(rol_relhum_X10304, bs = "ps") +
   s(rol_snowstorage_X10304, bs = "ps") + s(rol_soilwaterrootzone_X10304, bs = "ps") + s(rol_soilwaterunsatzone_X10304, bs = "ps")
 ## Verteilungsannahme: gauss
-# link: identity
+# link: log
 model_summer_ps_04_1 <- bam(formula = formula_04, data = data_merged_rol_summer,
-                            family = gaussian(link = "identity"))
+                            family = gaussian(link = "log"))
 summary(model_summer_ps_04_1)
 # model diagnosis
 data_res_summer_ps_04_1_kbj <- data_obs_res_kbj(model = model_summer_ps_04_1, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_1_kbj, halfyear = "summer", catchment = "X10304",
-                 title = "Mittenwald, gaussian, identity link, summer (kbj)")
-mse_summer_ps_04_1_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_1_kbj, halfyear = "summer", catchment = "X10304")
-
-
-# link: log
-model_summer_ps_04_2 <- bam(formula = formula_04, data = data_merged_rol_summer,
-                            family = gaussian(link = "log"))
-summary(model_summer_ps_04_2)
-# model diagnosis
-data_res_summer_ps_04_2_kbj <- data_obs_res_kbj(model = model_summer_ps_04_2, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_2_kbj, halfyear = "summer", catchment = "X10304",
                  title = "Mittenwald, gaussian, log link, summer (kbj)")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_2_kbj, halfyear = "summer", catchment = "X10304",
+plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_1_kbj, halfyear = "summer", catchment = "X10304",
                  title = "Mittenwald, gaussian, log link, summer (kbj)", ylim_l = -100, ylim_u = 50)
-mse_summer_ps_04_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_2_kbj, halfyear = "summer", catchment = "X10304")
+mse_summer_ps_04_1_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_1_kbj, halfyear = "summer", catchment = "X10304")
 
 
 
 ## Verteilungsannahme: gamma
-# link: identity
-model_summer_ps_04_3 <- bam(formula = formula_04, data = data_merged_rol_summer,
-                            family = Gamma(link = "identity"))
-summary(model_summer_ps_04_3)
-# model diagnosis
-data_res_summer_ps_04_3_kbj <- data_obs_res_kbj(model = model_summer_ps_04_3, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_3_kbj, halfyear = "summer", catchment = "X10304",
-                 title = "Mittenwald, gamma, identity link, summer (kbj)")
-mse_summer_ps_04_3_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_3_kbj, halfyear = "summer", catchment = "X10304")
-
-
 # link: log
-model_summer_ps_04_4 <- bam(formula = formula_04, data = data_merged_rol_summer,
+model_summer_ps_04_2 <- bam(formula = formula_04, data = data_merged_rol_summer,
                             family = Gamma(link = "log"))
-summary(model_summer_ps_04_4)
+summary(model_summer_ps_04_2)
 # model diagnosis
-data_res_summer_ps_04_4_kbj <- data_obs_res_kbj(model = model_summer_ps_04_4, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_4_kbj, halfyear = "summer", catchment = "X10304",
+data_res_summer_ps_04_2_kbj <- data_obs_res_kbj(model = model_summer_ps_04_2, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
+plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_04_2_kbj, halfyear = "summer", catchment = "X10304",
                  title = "Mittenwald, gamma, log link, summer (kbj)")
-mse_summer_ps_04_4_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_4_kbj, halfyear = "summer", catchment = "X10304")
+mse_summer_ps_04_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_04_2_kbj, halfyear = "summer", catchment = "X10304")
 
-### due to mse for member kbj for low drainage values: choose gaussian, link: log
-
+### due to mse for member kbj for low drainage values: choose gamma, link: log
 
 
 # adding interactions
-vars_04 <- c("YY", "rol_airtmp_X10304", "rol_glorad_X10304", "rol_groundwaterdepth_X10304", "rol_precip_X10304",
+vars_04 <- c("rol_airtmp_X10304", "rol_glorad_X10304", "rol_groundwaterdepth_X10304", "rol_precip_X10304",
              "rol_qinfiltration_X10304", "rol_relhum_X10304", "rol_snowstorage_X10304", "rol_soilwaterrootzone_X10304", "rol_soilwaterunsatzone_X10304")
 # 1. interaction
 formula_chr_04 <- "drainage_X10304 ~ YY +
@@ -123,37 +101,37 @@ formula_chr_04 <- "drainage_X10304 ~ YY +
   s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
   s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps')"
 find_best_interac(vars = vars_04, formula_chr = formula_chr_04, data = data_merged_rol_summer,
-                  family = gaussian(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10304", halfyear = "summer")
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10304", halfyear = "summer")
 
 # 2. interaction
 formula_chr_04 <- "drainage_X10304 ~ YY +
-  rol_groundwaterdepth_X10304:rol_snowstorage_X10304 +
+  rol_glorad_X10304:rol_snowstorage_X10304 +
   s(rol_airtmp_X10304, bs = 'ps') + s(rol_glorad_X10304, bs = 'ps') + s(rol_groundwaterdepth_X10304, bs = 'ps') +
   s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
   s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps')"
 find_best_interac(vars = vars_04, formula_chr = formula_chr_04, data = data_merged_rol_summer,
-                  family = gaussian(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10304", halfyear = "summer")
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10304", halfyear = "summer")
 
 
 formula_chr_04 <- "drainage_X10304 ~ YY +
-  rol_groundwaterdepth_X10304:rol_snowstorage_X10304 +
+  rol_glorad_X10304:rol_snowstorage_X10304 +
   rol_glorad_X10304:rol_qinfiltration_X10304 +
   s(rol_airtmp_X10304, bs = 'ps') + s(rol_glorad_X10304, bs = 'ps') + s(rol_groundwaterdepth_X10304, bs = 'ps') +
   s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
   s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps')"
 model_summer_ps_intera_04 <- bam(formula = as.formula(formula_chr_04), data = data_merged_rol_summer,
-                                 family = gaussian(link = "log"))
+                                 family = Gamma(link = "log"))
 
 data_res_summer_ps_intera_04_kbj <- data_obs_res_kbj(model = model_summer_ps_intera_04, data_kbj = data_merged_rol_summer_kbj, catchment = "X10304")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_intera_04_kbj, halfyear = "summer", catchment = "X10304",
-                 title = "Mittenwald, gaussian, log link, summer (kbj) with interactions", ylim_l = -100, ylim_u = 100)
+                 title = "Mittenwald, gamma, log link, summer (kbj) with interactions", ylim_l = -100, ylim_u = 100)
 mse_summer_ps_intera_04_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_intera_04_kbj, halfyear = "summer", catchment = "X10304")
 
 
 plot(model_summer_ps_intera_04)
-interact_plot(model = model_summer_ps_intera_04, pred = rol_groundwaterdepth_X10304, modx = rol_snowstorage_X10304,
+interact_plot(model = model_summer_ps_intera_04, pred = rol_glorad_X10304, modx = rol_snowstorage_X10304,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_04, pred = rol_snowstorage_X10304, modx = rol_groundwaterdepth_X10304,
+interact_plot(model = model_summer_ps_intera_04, pred = rol_snowstorage_X10304, modx = rol_glorad_X10304,
               interval = TRUE, int.type = "confidence")
 
 interact_plot(model = model_summer_ps_intera_04, pred = rol_glorad_X10304, modx = rol_qinfiltration_X10304,
@@ -173,53 +151,81 @@ formula_21 <- drainage_X10321 ~ YY +
   s(rol_precip_X10321, bs = "ps") + s(rol_qinfiltration_X10321, bs = "ps") + s(rol_relhum_X10321, bs = "ps") +
   s(rol_snowstorage_X10321, bs = "ps") + s(rol_soilwaterrootzone_X10321, bs = "ps") + s(rol_soilwaterunsatzone_X10321, bs = "ps")
 ## Verteilungsannahme: gauss
-# link: identity
+# link: log
 model_summer_ps_21_1 <- bam(formula = formula_21, data = data_merged_rol_summer,
-                            family = gaussian(link = "identity"))
+                            family = gaussian(link = "log"))
 summary(model_summer_ps_21_1)
 # model diagnosis
 data_res_summer_ps_21_1_kbj <- data_obs_res_kbj(model = model_summer_ps_21_1, data_kbj = data_merged_rol_summer_kbj, catchment = "X10321")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_1_kbj, halfyear = "summer", catchment = "X10321",
-                 title = "Schlehdorf, gaussian, identity link, summer (kbj)")
+                 title = "Schlehdorf, gaussian, log link, summer (kbj)")
+plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_1_kbj, halfyear = "summer", catchment = "X10321",
+                 title = "Schlehdorf, gaussian, log link, summer (kbj)", ylim_l = -100, ylim_u = 100)
 mse_summer_ps_21_1_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_21_1_kbj, halfyear = "summer", catchment = "X10321")
 
 
+## Verteilungsannahme: gamma
 # link: log
 model_summer_ps_21_2 <- bam(formula = formula_21, data = data_merged_rol_summer,
-                            family = gaussian(link = "log"))
+                            family = Gamma(link = "log"))
 summary(model_summer_ps_21_2)
 # model diagnosis
 data_res_summer_ps_21_2_kbj <- data_obs_res_kbj(model = model_summer_ps_21_2, data_kbj = data_merged_rol_summer_kbj, catchment = "X10321")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_2_kbj, halfyear = "summer", catchment = "X10321",
-                 title = "Schlehdorf, gaussian, log link, summer (kbj)")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_2_kbj, halfyear = "summer", catchment = "X10321",
-                 title = "Schlehdorf, gaussian, log link, summer (kbj)", ylim_l = -100, ylim_u = 100)
+                 title = "Schlehdorf, gamma, log link, summer (kbj)", all = TRUE, ylim_l = -100, ylim_u = 100)
 mse_summer_ps_21_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_21_2_kbj, halfyear = "summer", catchment = "X10321")
 
-################## PROBLEM!
-## Verteilungsannahme: gamma
-# link: identity
-model_summer_ps_21_3 <- bam(formula = formula_21, data = data_merged_rol_summer,
-                            family = Gamma(link = "identity"))
-summary(model_summer_ps_21_3)
-# model diagnosis
-data_res_summer_ps_21_3_kbj <- data_obs_res_kbj(model = model_summer_ps_21_3, data_kbj = data_merged_rol_summer_kbj, catchment = "X10321")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_3_kbj, halfyear = "summer", catchment = "X10321",
-                 title = "Schlehdorf, gamma, identity link, summer (kbj)")
-mse_summer_ps_21_3_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_21_3_kbj, halfyear = "summer", catchment = "X10321")
+### due to mse for member kbj for low drainage values: choose gamma, link: log
+
+# adding interactions
+vars_21 <- c("rol_airtmp_X10321", "rol_glorad_X10321", "rol_groundwaterdepth_X10321", "rol_precip_X10321",
+             "rol_qinfiltration_X10321", "rol_relhum_X10321", "rol_snowstorage_X10321", "rol_soilwaterrootzone_X10321", "rol_soilwaterunsatzone_X10321")
+# 1. interaction
+formula_chr_21 <- "drainage_X10321 ~ YY +
+  s(rol_airtmp_X10321, bs = 'ps') + s(rol_glorad_X10321, bs = 'ps') + s(rol_groundwaterdepth_X10321, bs = 'ps') +
+  s(rol_precip_X10321, bs = 'ps') + s(rol_qinfiltration_X10321, bs = 'ps') + s(rol_relhum_X10321, bs = 'ps') +
+  s(rol_snowstorage_X10321, bs = 'ps') + s(rol_soilwaterrootzone_X10321, bs = 'ps') + s(rol_soilwaterunsatzone_X10321, bs = 'ps')"
+find_best_interac(vars = vars_21, formula_chr = formula_chr_21, data = data_merged_rol_summer,
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10321", halfyear = "summer")
+
+# 2. interaction
+formula_chr_21 <- "drainage_X10321 ~ YY +
+  rol_snowstorage_X10321:rol_glorad_X10321 +
+  s(rol_airtmp_X10321, bs = 'ps') + s(rol_glorad_X10321, bs = 'ps') + s(rol_groundwaterdepth_X10321, bs = 'ps') +
+  s(rol_precip_X10321, bs = 'ps') + s(rol_qinfiltration_X10321, bs = 'ps') + s(rol_relhum_X10321, bs = 'ps') +
+  s(rol_snowstorage_X10321, bs = 'ps') + s(rol_soilwaterrootzone_X10321, bs = 'ps') + s(rol_soilwaterunsatzone_X10321, bs = 'ps')"
+find_best_interac(vars = vars_21, formula_chr = formula_chr_21, data = data_merged_rol_summer,
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10321", halfyear = "summer")
 
 
-# link: log
-model_summer_ps_21_4 <- bam(formula = formula_21, data = data_merged_rol_summer,
-                            family = Gamma(link = "log"))
-summary(model_summer_ps_21_4)
-# model diagnosis
-data_res_summer_ps_21_4_kbj <- data_obs_res_kbj(model = model_summer_ps_21_4, data_kbj = data_merged_rol_summer_kbj, catchment = "X10321")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_21_4_kbj, halfyear = "summer", catchment = "X10321",
-                 title = "Schlehdorf, gamma, log link, summer (kbj)", all = TRUE, ylim_l = -100, ylim_u = 100)
-mse_summer_ps_21_4_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_21_4_kbj, halfyear = "summer", catchment = "X10321")
+formula_chr_21 <- "drainage_X10321 ~ YY +
+  rol_snowstorage_X10321:rol_glorad_X10321 +
+  rol_snowstorage_X10321:rol_qinfiltration_X10321 +
+  s(rol_airtmp_X10304, bs = 'ps') + s(rol_glorad_X10304, bs = 'ps') + s(rol_groundwaterdepth_X10304, bs = 'ps') +
+  s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
+  s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps')"
+model_summer_ps_intera_21 <- bam(formula = as.formula(formula_chr_21), data = data_merged_rol_summer,
+                                 family = Gamma(link = "log"))
 
-### due to mse for member kbj for low drainage values: choose
+summary(model_summer_ps_intera_21)
+
+data_res_summer_ps_intera_21_kbj <- data_obs_res_kbj(model = model_summer_ps_intera_21, data_kbj = data_merged_rol_summer_kbj, catchment = "X10321")
+plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_intera_21_kbj, halfyear = "summer", catchment = "X10321",
+                 title = "Schlehdorf, gamma, log link, summer (kbj) with interactions", ylim_l = -100, ylim_u = 100)
+mse_summer_ps_intera_21_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_intera_21_kbj, halfyear = "summer", catchment = "X10321")
+
+
+plot(model_summer_ps_intera_21)
+interact_plot(model = model_summer_ps_intera_21, pred = rol_snowstorage_X10321, modx = rol_glorad_X10321,
+              interval = TRUE, int.type = "confidence")
+interact_plot(model = model_summer_ps_intera_21, pred = rol_glorad_X10321, modx = rol_snowstorage_X10321,
+              interval = TRUE, int.type = "confidence")
+
+interact_plot(model = model_summer_ps_intera_21, pred = rol_snowstorage_X10321, modx = rol_qinfiltration_X10321,
+              interval = TRUE, int.type = "confidence")
+interact_plot(model = model_summer_ps_intera_21, pred = rol_qinfiltration_X10321, modx = rol_snowstorage_X10321,
+              interval = TRUE, int.type = "confidence")
+
 
 
 
@@ -234,55 +240,32 @@ formula_03 <- drainage_X10303 ~ drainage_X10304 + YY +
   s(rol_precip_X10303, bs = "ps") + s(rol_qinfiltration_X10303, bs = "ps") + s(rol_relhum_X10303, bs = "ps") +
   s(rol_snowstorage_X10303, bs = "ps") + s(rol_soilwaterrootzone_X10303, bs = "ps") + s(rol_soilwaterunsatzone_X10303, bs = "ps")
 ## Verteilungsannahme: gauss
-# link: identity
+# link: log
 model_summer_ps_03_1 <- bam(formula = formula_03, data = data_merged_rol_summer,
-                            family = gaussian(link = "identity"))
+                            family = gaussian(link = "log"))
 summary(model_summer_ps_03_1)
 # model diagnosis
 data_res_summer_ps_03_1_kbj <- data_obs_res_kbj(model = model_summer_ps_03_1, data_kbj = data_merged_rol_summer_kbj, catchment = "X10303")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_03_1_kbj, halfyear = "summer", catchment = "X10303",
-                 title = "Bad Tölz, gaussian, identity link, summer (kbj)")
+                 title = "Bad Tölz, gaussian, log link, summer (kbj)")
 mse_summer_ps_03_1_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_03_1_kbj, halfyear = "summer", catchment = "X10303")
 
 
+## Verteilungsannahme: gamma
 # link: log
 model_summer_ps_03_2 <- bam(formula = formula_03, data = data_merged_rol_summer,
-                            family = gaussian(link = "log"))
+                            family = Gamma(link = "log"))
 summary(model_summer_ps_03_2)
 # model diagnosis
 data_res_summer_ps_03_2_kbj <- data_obs_res_kbj(model = model_summer_ps_03_2, data_kbj = data_merged_rol_summer_kbj, catchment = "X10303")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_03_2_kbj, halfyear = "summer", catchment = "X10303",
-                 title = "Bad Tölz, gaussian, log link, summer (kbj)")
-mse_summer_ps_03_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_03_2_kbj, halfyear = "summer", catchment = "X10303")
-
-
-## Verteilungsannahme: gamma
-# link: identity
-model_summer_ps_03_3 <- bam(formula = formula_03, data = data_merged_rol_summer,
-                            family = Gamma(link = "identity"))
-summary(model_summer_ps_03_3)
-# model diagnosis
-data_res_summer_ps_03_3_kbj <- data_obs_res_kbj(model = model_summer_ps_03_3, data_kbj = data_merged_rol_summer_kbj, catchment = "X10303")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_03_3_kbj, halfyear = "summer", catchment = "X10303",
-                 title = "Bad Tölz, gamma, identity link, summer (kbj)")
-mse_summer_ps_03_3_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_03_3_kbj, halfyear = "summer", catchment = "X10303")
-
-
-
-# link: log
-model_summer_ps_03_4 <- bam(formula = formula_03, data = data_merged_rol_summer,
-                            family = Gamma(link = "log"))
-summary(model_summer_ps_03_4)
-# model diagnosis
-data_res_summer_ps_03_4_kbj <- data_obs_res_kbj(model = model_summer_ps_03_4, data_kbj = data_merged_rol_summer_kbj, catchment = "X10303")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_03_4_kbj, halfyear = "summer", catchment = "X10303",
                  title = "Bad Tölz, gamma, log link, summer (kbj)")
-mse_summer_ps_03_4_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_03_4_kbj, halfyear = "summer", catchment = "X10303")
+mse_summer_ps_03_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_03_2_kbj, halfyear = "summer", catchment = "X10303")
 
 ### due to mse for low drainage values: choose gamma, link: log
 
 # adding interactions
-vars_03 <- c("YY", "rol_airtmp_X10303", "rol_glorad_X10303", "rol_groundwaterdepth_X10303", "rol_precip_X10303",
+vars_03 <- c("rol_airtmp_X10303", "rol_glorad_X10303", "rol_groundwaterdepth_X10303", "rol_precip_X10303",
              "rol_qinfiltration_X10303", "rol_relhum_X10303", "rol_snowstorage_X10303", "rol_soilwaterrootzone_X10303", "rol_soilwaterunsatzone_X10303")
 # 1. interaction
 formula_chr_03 <- "drainage_X10303 ~ drainage_X10304 + YY +
@@ -294,7 +277,7 @@ find_best_interac(vars = vars_03, formula_chr = formula_chr_03, data = data_merg
 
 # 2. interaction
 formula_chr_03 <- "drainage_X10303 ~ drainage_X10304 + YY +
-  rol_airtmp_X10303:rol_qinfiltration_X10303 +
+  rol_relhum_X10303:rol_soilwaterunsatzone_X10303 +
   s(rol_airtmp_X10303, bs = 'ps') + s(rol_glorad_X10303, bs = 'ps') + s(rol_groundwaterdepth_X10303, bs = 'ps') +
   s(rol_precip_X10303, bs = 'ps') + s(rol_qinfiltration_X10303, bs = 'ps') + s(rol_relhum_X10303, bs = 'ps') +
   s(rol_snowstorage_X10303, bs = 'ps') + s(rol_soilwaterrootzone_X10303, bs = 'ps') + s(rol_soilwaterunsatzone_X10303, bs = 'ps')"
@@ -302,8 +285,8 @@ find_best_interac(vars = vars_03, formula_chr = formula_chr_03, data = data_merg
                   family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10303", halfyear = "summer")
 
 formula_chr_03 <- "drainage_X10303 ~ drainage_X10304 + YY +
-  rol_airtmp_X10303:rol_qinfiltration_X10303 +
-  rol_precip_X10303:rol_glorad_X10303 +
+  rol_relhum_X10303:rol_soilwaterunsatzone_X10303 +
+  rol_snowstorage_X10303:rol_precip_X10303 +
   s(rol_airtmp_X10303, bs = 'ps') + s(rol_glorad_X10303, bs = 'ps') + s(rol_groundwaterdepth_X10303, bs = 'ps') +
   s(rol_precip_X10303, bs = 'ps') + s(rol_qinfiltration_X10303, bs = 'ps') + s(rol_relhum_X10303, bs = 'ps') +
   s(rol_snowstorage_X10303, bs = 'ps') + s(rol_soilwaterrootzone_X10303, bs = 'ps') + s(rol_soilwaterunsatzone_X10303, bs = 'ps')"
@@ -317,13 +300,13 @@ mse_summer_ps_intera_03_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps
 
 
 plot(model_summer_ps_intera_03)
-interact_plot(model = model_summer_ps_intera_03, pred = rol_airtmp_X10303, modx = rol_qinfiltration_X10303,
+interact_plot(model = model_summer_ps_intera_03, pred = rol_relhum_X10303, modx = rol_soilwaterunsatzone_X10303,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_03, pred = rol_qinfiltration_X10303, modx = rol_airtmp_X10303,
+interact_plot(model = model_summer_ps_intera_03, pred = rol_soilwaterunsatzone_X10303, modx = rol_relhum_X10303,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_03, pred = rol_precip_X10303, modx = rol_glorad_X10303,
+interact_plot(model = model_summer_ps_intera_03, pred = rol_snowstorage_X10303, modx = rol_precip_X10303,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_03, pred = rol_glorad_X10303, modx = rol_precip_X10303,
+interact_plot(model = model_summer_ps_intera_03, pred = rol_precip_X10303, modx = rol_snowstorage_X10303,
               interval = TRUE, int.type = "confidence")
 
 
@@ -347,58 +330,35 @@ formula_02 <- drainage_X10302 ~ drainage_X10303 + drainage_X10321 + YY +
   s(rol_precip_X10302, bs = "ps") + s(rol_qinfiltration_X10302, bs = "ps") + s(rol_relhum_X10302, bs = "ps") +
   s(rol_snowstorage_X10302, bs = "ps") + s(rol_soilwaterrootzone_X10302, bs = "ps") + s(rol_soilwaterunsatzone_X10302, bs = "ps")
 ## Verteilungsannahme: gauss
-# link: identity
+# link: log
 model_summer_ps_02_1 <- bam(formula = formula_02, data = data_merged_rol_summer,
-                            family = gaussian(link = "identity"))
+                            family = gaussian(link = "log"))
 summary(model_summer_ps_02_1)
 # model diagnosis
 data_res_summer_ps_02_1_kbj <- data_obs_res_kbj(model = model_summer_ps_02_1, data_kbj = data_merged_rol_summer_kbj, catchment = "X10302")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_02_1_kbj, halfyear = "summer", catchment = "X10302",
-                 title = "Munich, gaussian, identity link, summer (kbj)")
+                 title = "Munich, gaussian, log link, summer (kbj)")
 mse_summer_ps_02_1_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_02_1_kbj, halfyear = "summer", catchment = "X10302")
 
 
+## Verteilungsannahme: gamma
 # link: log
 model_summer_ps_02_2 <- bam(formula = formula_02, data = data_merged_rol_summer,
-                            family = gaussian(link = "log"))
+                            family = Gamma(link = "log"))
 summary(model_summer_ps_02_2)
 # model diagnosis
 data_res_summer_ps_02_2_kbj <- data_obs_res_kbj(model = model_summer_ps_02_2, data_kbj = data_merged_rol_summer_kbj, catchment = "X10302")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_02_2_kbj, halfyear = "summer", catchment = "X10302",
-                 title = "Munich, gaussian, log link, summer (kbj)")
+                 title = "Munich, gamma, log link, summer (kbj)")
 mse_summer_ps_02_2_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_02_2_kbj, halfyear = "summer", catchment = "X10302")
 
 
-## Verteilungsannahme: gamma
-# link: identity
-model_summer_ps_02_3 <- bam(formula = formula_02, data = data_merged_rol_summer,
-                            family = Gamma(link = "identity"))
-summary(model_summer_ps_02_3)
-# model diagnosis
-data_res_summer_ps_02_3_kbj <- data_obs_res_kbj(model = model_summer_ps_02_3, data_kbj = data_merged_rol_summer_kbj, catchment = "X10302")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_02_3_kbj, halfyear = "summer", catchment = "X10302",
-                 title = "Munich, gamma, identity link, summer (kbj)", all = TRUE, ylim_l = -200, ylim_u = 200)
-mse_summer_ps_02_3_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_02_3_kbj, halfyear = "summer", catchment = "X10302")
-
-
-
-# link: log
-model_summer_ps_02_4 <- bam(formula = formula_02, data = data_merged_rol_summer,
-                            family = Gamma(link = "log"))
-summary(model_summer_ps_02_4)
-# model diagnosis
-data_res_summer_ps_02_4_kbj <- data_obs_res_kbj(model = model_summer_ps_02_4, data_kbj = data_merged_rol_summer_kbj, catchment = "X10302")
-plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_02_4_kbj, halfyear = "summer", catchment = "X10302",
-                 title = "Munich, gamma, log link, summer (kbj)")
-mse_summer_ps_02_4_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_02_4_kbj, halfyear = "summer", catchment = "X10302")
-
-
-### due to mse for low drainage values: choose gamma, link: identity
+### due to mse for low drainage values: choose gamma, link: log
 
 
 
 # adding interactions
-vars_02 <- c("YY", "rol_airtmp_X10302", "rol_glorad_X10302", "rol_groundwaterdepth_X10302", "rol_precip_X10302",
+vars_02 <- c("rol_airtmp_X10302", "rol_glorad_X10302", "rol_groundwaterdepth_X10302", "rol_precip_X10302",
              "rol_qinfiltration_X10302", "rol_relhum_X10302", "rol_snowstorage_X10302", "rol_soilwaterrootzone_X10302", "rol_soilwaterunsatzone_X10302")
 # 1. interaction
 formula_chr_02 <- "drainage_X10302 ~ drainage_X10303 + drainage_X10321 + YY +
@@ -406,39 +366,41 @@ formula_chr_02 <- "drainage_X10302 ~ drainage_X10303 + drainage_X10321 + YY +
   s(rol_precip_X10302, bs = 'ps') + s(rol_qinfiltration_X10302, bs = 'ps') + s(rol_relhum_X10302, bs = 'ps') +
   s(rol_snowstorage_X10302, bs = 'ps') + s(rol_soilwaterrootzone_X10302, bs = 'ps') + s(rol_soilwaterunsatzone_X10302, bs = 'ps')"
 find_best_interac(vars = vars_02, formula_chr = formula_chr_02, data = data_merged_rol_summer,
-                  family = Gamma(link = "identity"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10302", halfyear = "summer")
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10302", halfyear = "summer")
 
 # 2. interaction
 formula_chr_02 <- "drainage_X10302 ~ drainage_X10303 + drainage_X10321 + YY +
-  rol_snowstorage_X10302:rol_soilwaterunsatzone_X10302 +
+  rol_precip_X10302:rol_snowstorage_X10302 +
   s(rol_airtmp_X10302, bs = 'ps') + s(rol_glorad_X10302, bs = 'ps') + s(rol_groundwaterdepth_X10302, bs = 'ps') +
   s(rol_precip_X10302, bs = 'ps') + s(rol_qinfiltration_X10302, bs = 'ps') + s(rol_relhum_X10302, bs = 'ps') +
   s(rol_snowstorage_X10302, bs = 'ps') + s(rol_soilwaterrootzone_X10302, bs = 'ps') + s(rol_soilwaterunsatzone_X10302, bs = 'ps')"
 find_best_interac(vars = vars_02, formula_chr = formula_chr_02, data = data_merged_rol_summer,
-                  family = Gamma(link = "identity"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10302", halfyear = "summer")
+                  family = Gamma(link = "log"), data_kbj = data_merged_rol_summer_kbj, catchment = "X10302", halfyear = "summer")
 
 
 formula_chr_02 <- "drainage_X10302 ~ drainage_X10303 + drainage_X10321 + YY +
-  rol_snowstorage_X10302:rol_soilwaterunsatzone_X10302 +
-  rol_soilwaterunsatzone_X10302:rol_airtmp_X10302 +
+  rol_precip_X10302:rol_snowstorage_X10302 +
+  rol_relhum_X10302:rol_soilwaterunsatzone_X10302  +
   s(rol_airtmp_X10302, bs = 'ps') + s(rol_glorad_X10302, bs = 'ps') + s(rol_groundwaterdepth_X10302, bs = 'ps') +
   s(rol_precip_X10302, bs = 'ps') + s(rol_qinfiltration_X10302, bs = 'ps') + s(rol_relhum_X10302, bs = 'ps') +
   s(rol_snowstorage_X10302, bs = 'ps') + s(rol_soilwaterrootzone_X10302, bs = 'ps') + s(rol_soilwaterunsatzone_X10302, bs = 'ps')"
 model_summer_ps_intera_02 <- bam(formula = as.formula(formula_chr_02), data = data_merged_rol_summer,
-                                 family = Gamma(link = "identity"))
+                                 family = Gamma(link = "log"))
 summary(model_summer_ps_intera_02)
 data_res_summer_ps_intera_02_kbj <- data_obs_res_kbj(model = model_summer_ps_intera_02, data_kbj = data_merged_rol_summer_kbj, catchment = "X10302")
 plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_intera_02_kbj, halfyear = "summer", catchment = "X10302",
-                 title = "Munich, gamma, identity link, summer (kbj) with interactions")
+                 title = "Munich, gamma, log link, summer (kbj) with interactions")
+plot_obs_res_kbj(data_obs_res_kbj = data_res_summer_ps_intera_02_kbj, halfyear = "summer", catchment = "X10302",
+                 title = "Munich, gamma, log link, summer (kbj) with interactions", ylim_l = -200, ylim_u = 200)
 mse_summer_ps_intera_02_kbj <- res_mse_kbj(data_obs_res_kbj = data_res_summer_ps_intera_02_kbj, halfyear = "summer", catchment = "X10302")
 
 
 plot(model_summer_ps_intera_02)
-interact_plot(model = model_summer_ps_intera_02, pred = rol_snowstorage_X10302, modx = rol_soilwaterunsatzone_X10302,
+interact_plot(model = model_summer_ps_intera_02, pred = rol_precip_X10302, modx = rol_snowstorage_X10302,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_02, pred = rol_soilwaterunsatzone_X10302, modx = rol_snowstorage_X10302,
+interact_plot(model = model_summer_ps_intera_02, pred = rol_snowstorage_X10302, modx = rol_precip_X10302,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_02, pred = rol_soilwaterunsatzone_X10302, modx = rol_airtmp_X10302,
+interact_plot(model = model_summer_ps_intera_02, pred = rol_relhum_X10302, modx = rol_soilwaterunsatzone_X10302,
               interval = TRUE, int.type = "confidence")
-interact_plot(model = model_summer_ps_intera_02, pred = rol_airtmp_X10302, modx = rol_soilwaterunsatzone_X10302,
+interact_plot(model = model_summer_ps_intera_02, pred = rol_soilwaterunsatzone_X10302, modx = rol_relhum_X10302,
               interval = TRUE, int.type = "confidence")
