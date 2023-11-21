@@ -34,4 +34,4 @@ for (i in variablenames) {
   }
 }
 
-saveRDS(data_merged_rol_kbj, "data_merged_rol_kbj.rds")
+# saveRDS(data_merged_rol_kbj, "data_merged_rol_kbj.rds")

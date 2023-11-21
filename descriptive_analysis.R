@@ -106,22 +106,6 @@ ggplot(data = data_table) +
   facet_wrap(~factor(halfyear, levels = c("winter", "summer")))
 ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/univ/drainage_max.pdf"), width = 17, height = 9)
 
-
-# # proportion of drainages <= NM7Q
-# ggplot(data = data_table) +
-#   geom_line(mapping = aes(x = YY, y = prop_min_drainage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-#   geom_point(mapping = aes(x = YY, y = prop_min_drainage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-#   labs(y = "proportion of drainages up to respective NM7Q",
-#        x = "year") +
-#   theme_bw() +
-#   ylim(0, 1) +
-#   theme(text = element_text(size = 30),
-#         panel.spacing = unit(2, "lines")) +
-#   scale_color_manual(name = "catchment", c("Mittenwald", "Schlehdorf", "Bad Tölz",  "Munich"),
-#                      values = c("darkred", "chartreuse4", "darkcyan", "darkviolet")) +
-#   facet_wrap(~factor(halfyear, levels = c("winter", "summer")))
-
-
 # min airtmp
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +

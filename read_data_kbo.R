@@ -79,4 +79,4 @@ data_merged_kbo <- merge(data_merged_kbo, data_soilwaterunsatzone_named_kbo, by.
 data_merged_kbo <- data_merged_kbo[order(data_merged_kbo$YY, data_merged_kbo$MM, data_merged_kbo$DD, data_merged_kbo$HH),]
 # add row ind
 data_merged_kbo$ind <- 1:nrow(data_merged_kbo)
-saveRDS(data_merged_kbo, "data_merged_kbo.rds")
+# saveRDS(data_merged_kbo, "data_merged_kbo.rds")

@@ -79,4 +79,4 @@ data_merged <- merge(data_merged, data_soilwaterunsatzone_named, by.x = c("YY", 
 data_merged <- data_merged[order(data_merged$YY, data_merged$MM, data_merged$DD, data_merged$HH),]
 # add row ind
 data_merged$ind <- 1:nrow(data_merged)
-saveRDS(data_merged, "data_merged.rds")
+# saveRDS(data_merged, "data_merged.rds")

@@ -837,3 +837,4 @@ rm(data_table_min_soilwaterunsatzone_summer)
 rm(data_table_mean_soilwaterunsatzone_summer)
 rm(data_table_max_soilwaterunsatzone_summer)
 rm(data_table_summer)
+

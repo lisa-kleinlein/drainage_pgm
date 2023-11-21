@@ -214,8 +214,3 @@ find_best_interac <- function(vars, formula_chr, data, data_kbj, family, catchme
   print(gam_best_mse)
   summary(gam_best_list[[which.min(gam_best_mse)]])
 }
-
-
-
-
-
