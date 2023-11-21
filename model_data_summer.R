@@ -201,9 +201,9 @@ find_best_interac(vars = vars_21, formula_chr = formula_chr_21, data = data_merg
 formula_chr_21 <- "drainage_X10321 ~ YY +
   rol_snowstorage_X10321:rol_glorad_X10321 +
   rol_snowstorage_X10321:rol_qinfiltration_X10321 +
-  s(rol_airtmp_X10304, bs = 'ps') + s(rol_glorad_X10304, bs = 'ps') + s(rol_groundwaterdepth_X10304, bs = 'ps') +
-  s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
-  s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps')"
+  s(rol_airtmp_X10321, bs = 'ps') + s(rol_glorad_X10321, bs = 'ps') + s(rol_groundwaterdepth_X10321, bs = 'ps') +
+  s(rol_precip_X10321, bs = 'ps') + s(rol_qinfiltration_X10321, bs = 'ps') + s(rol_relhum_X10321, bs = 'ps') +
+  s(rol_snowstorage_X10321, bs = 'ps') + s(rol_soilwaterrootzone_X10321, bs = 'ps') + s(rol_soilwaterunsatzone_X10321, bs = 'ps')"
 model_summer_ps_intera_21 <- bam(formula = as.formula(formula_chr_21), data = data_merged_rol_summer,
                                  family = Gamma(link = "log"))
 

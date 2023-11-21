@@ -4,11 +4,8 @@
 #X10321 = Schlehdorf
 
 # load packages
-library(zoo)
-library(bnlearn)
-library(Rgraphviz)
-library(ggplot2)
 library(mgcv)
+library(zoo)
 source("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/drainage_pgm/functions.R")
 
 # load data
@@ -16,6 +13,35 @@ setwd("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/drai
 data_merged_rol <- readRDS("data_merged_rol.rds")
 setwd("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/drainage_pgm/kbj")
 data_merged_rol_kbj <- readRDS("data_merged_rol_kbj.rds")
+
+
+# calculate NM7Q per catchment and hydrological half-year
+for (i in c("X10302", "X10303", "X10304", "X10321")) {
+  for (j in c("winter", "summer")) {
+    min_values_per_year <- numeric()
+    for (k in 1981:2010) {
+      if (j == "winter") {
+        if (k == 1981) {
+          values <- data_merged_rol[data_merged_rol$YY == k & data_merged_rol$MM <= 4, paste0("drainage_", i)]
+          rol_values <- rollapply(values, 8 * 7, mean, align = 'right', fill = NA)
+          min_values_per_year[length(min_values_per_year) + 1] <- min(rol_values, na.rm = TRUE)
+        } else {
+          values <- data_merged_rol[data_merged_rol$YY == (k - 1) & data_merged_rol$MM >= 11, paste0("drainage_", i)]
+          values <- c(values, data_merged_rol[data_merged_rol$YY == k & data_merged_rol$MM <= 4, paste0("drainage_", i)])
+          rol_values <- rollapply(values, 8 * 7, mean, align = 'right', fill = NA)
+          min_values_per_year[length(min_values_per_year) + 1] <- min(rol_values, na.rm = TRUE)
+        }
+      } else {
+        values <- data_merged_rol[data_merged_rol$YY == k &
+                                    data_merged_rol$MM >= 5 & data_merged_rol$MM <= 10, paste0("drainage_", i)]
+        rol_values <- rollapply(values, 8 * 7, mean, align = 'right', fill = NA)
+        min_values_per_year[length(min_values_per_year) + 1] <- min(rol_values, na.rm = TRUE)
+      }
+      
+    }
+    assign(paste0("NM7Q_", i, "_", j), mean(min_values_per_year))
+  }
+}
 
 # winter data set
 data_merged_rol_winter <- data_merged_rol[data_merged_rol$MM < 5 | data_merged_rol$MM > 10, ]
@@ -80,9 +106,9 @@ model_summer_ps_intera_04 <- bam(formula = drainage_X10304 ~ YY +
 model_summer_ps_intera_21 <- bam(formula = drainage_X10321 ~ YY +
                                    rol_snowstorage_X10321:rol_glorad_X10321 +
                                    rol_snowstorage_X10321:rol_qinfiltration_X10321 +
-                                   s(rol_airtmp_X10304, bs = 'ps') + s(rol_glorad_X10304, bs = 'ps') + s(rol_groundwaterdepth_X10304, bs = 'ps') +
-                                   s(rol_precip_X10304, bs = 'ps') + s(rol_qinfiltration_X10304, bs = 'ps') + s(rol_relhum_X10304, bs = 'ps') +
-                                   s(rol_snowstorage_X10304, bs = 'ps') + s(rol_soilwaterrootzone_X10304, bs = 'ps') + s(rol_soilwaterunsatzone_X10304, bs = 'ps'),
+                                   s(rol_airtmp_X10321, bs = 'ps') + s(rol_glorad_X10321, bs = 'ps') + s(rol_groundwaterdepth_X10321, bs = 'ps') +
+                                   s(rol_precip_X10321, bs = 'ps') + s(rol_qinfiltration_X10321, bs = 'ps') + s(rol_relhum_X10321, bs = 'ps') +
+                                   s(rol_snowstorage_X10321, bs = 'ps') + s(rol_soilwaterrootzone_X10321, bs = 'ps') + s(rol_soilwaterunsatzone_X10321, bs = 'ps'),
                                  data = data_merged_rol_summer, family = Gamma(link = "log"))
 
 model_summer_ps_intera_03 <- bam(formula = drainage_X10303 ~ drainage_X10304 + YY +

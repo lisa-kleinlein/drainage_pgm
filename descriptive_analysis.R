@@ -298,7 +298,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum quantitative infiltration",
+  labs(y = "minimum infiltration",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -312,7 +312,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean quantitative infiltration",
+  labs(y = "mean infiltration",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -326,7 +326,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum quantitative infiltration",
+  labs(y = "maximum infiltration",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -427,7 +427,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum soilwater rootzone",
+  labs(y = "minimum soil water in root zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -441,7 +441,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean soilwater rootzone",
+  labs(y = "mean soil water in root zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -455,7 +455,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum soilwater rootzone",
+  labs(y = "maximum soil water in root zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -470,7 +470,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum soilwater unsatisfied zone",
+  labs(y = "minimum soil water in unsatisfied zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -484,7 +484,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean soilwater unsatisfied zone",
+  labs(y = "mean soil water in unsatisfied zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -498,7 +498,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum soilwater unsatisfied zone",
+  labs(y = "maximum soil water in unsatisfied zone",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -518,63 +518,285 @@ library(copula)
 library(rvinecopulib)
 vars_04 <- c("rol_airtmp_X10304", "rol_glorad_X10304", "rol_groundwaterdepth_X10304", "rol_precip_X10304",
              "rol_qinfiltration_X10304", "rol_relhum_X10304", "rol_snowstorage_X10304", "rol_soilwaterrootzone_X10304", "rol_soilwaterunsatzone_X10304")
-for (i in vars_04) {
-  assign(paste0("copula_", i), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10304")]), family_set = "parametric"))
-}
-
-# plots
-copula_test <- bicop(data = pobs(data.frame(runif(10000, min = 0, max = 1), runif(10000, min = 0, max = 1))))
-contour(copula_test, margins = "norm")
-?contour
-plot(copula_test)
-
-contour(copula_rol_airtmp_X10304, xlab = "airtmp", ylab = "drainage")
-contour(copula_rol_glorad_X10304, xlab = "glorad", ylab = "drainage")
-contour(copula_rol_groundwaterdepth_X10304, xlab = "groundwaterdepth", ylab = "drainage")
-contour(copula_rol_precip_X10304, xlab = "precip", ylab = "drainage")
-contour(copula_rol_qinfiltration_X10304, xlab = "qinfiltration", ylab = "drainage")
-contour(copula_rol_relhum_X10304, xlab = "relhum", ylab = "drainage")
-contour(copula_rol_snowstorage_X10304, xlab = "snowstorage", ylab = "drainage")
-contour(copula_rol_soilwaterrootzone_X10304, xlab = "soilwaterrootzone", ylab = "drainage")
-contour(copula_rol_soilwaterunsatzone_X10304, xlab = "soilwaterunsatzone", ylab = "drainage")
-
-
-plot(copula_rol_airtmp_X10304, xlab = "airtmp", ylab = "drainage")
-plot(copula_rol_glorad_X10304, xlab = "glorad", ylab = "drainage")
-plot(copula_rol_groundwaterdepth_X10304, xlab = "groundwaterdepth", ylab = "drainage")
-plot(copula_rol_precip_X10304, xlab = "precip", ylab = "drainage")
-plot(copula_rol_qinfiltration_X10304, xlab = "qinfiltration", ylab = "drainage")
-plot(copula_rol_relhum_X10304, xlab = "relhum", ylab = "drainage")
-plot(copula_rol_snowstorage_X10304, xlab = "snowstorage", ylab = "drainage")
-plot(copula_rol_soilwaterrootzone_X10304, xlab = "soilwaterrootzone", ylab = "drainage")
-plot(copula_rol_soilwaterunsatzone_X10304, xlab = "soilwaterunsatzone", ylab = "drainage")
-
-
 vars_21 <- c("rol_airtmp_X10321", "rol_glorad_X10321", "rol_groundwaterdepth_X10321", "rol_precip_X10321",
              "rol_qinfiltration_X10321", "rol_relhum_X10321", "rol_snowstorage_X10321", "rol_soilwaterrootzone_X10321", "rol_soilwaterunsatzone_X10321")
-for (i in vars_21) {
-  assign(paste0("copula_", i), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10321")]), family_set = "parametric"))
-}
-
-contour(copula_rol_airtmp_X10321, xlab = "airtmp", ylab = "drainage")
-
-
-
 vars_03 <- c("rol_airtmp_X10303", "rol_glorad_X10303", "rol_groundwaterdepth_X10303", "rol_precip_X10303",
              "rol_qinfiltration_X10303", "rol_relhum_X10303", "rol_snowstorage_X10303", "rol_soilwaterrootzone_X10303", "rol_soilwaterunsatzone_X10303")
-for (i in vars_03) {
-  assign(paste0("copula_", i), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10303")]), family_set = "parametric"))
-}
-
-contour(copula_rol_airtmp_X10303, xlab = "airtmp", ylab = "drainage")
-
 vars_02 <- c("rol_airtmp_X10302", "rol_glorad_X10302", "rol_groundwaterdepth_X10302", "rol_precip_X10302",
              "rol_qinfiltration_X10302", "rol_relhum_X10302", "rol_snowstorage_X10302", "rol_soilwaterrootzone_X10302", "rol_soilwaterunsatzone_X10302")
+
+for (i in vars_04) {
+  assign(paste0("copula_", i, "_winter"), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10304")]), family_set = "archimedean"))
+}
+for (i in vars_21) {
+  assign(paste0("copula_", i, "_winter"), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10321")]), family_set = "archimedean"))
+}
+for (i in vars_03) {
+  assign(paste0("copula_", i, "_winter"), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10303")]), family_set = "archimedean"))
+}
 for (i in vars_02) {
-  assign(paste0("copula_", i), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10302")]), family_set = "parametric"))
+  assign(paste0("copula_", i, "_winter"), bicop(data = pobs(data_merged_rol_winter[, c(i, "drainage_X10302")]), family_set = "archimedean"))
 }
 
-contour(copula_rol_airtmp_X10302, xlab = "airtmp", ylab = "drainage")
+for (i in vars_04) {
+  assign(paste0("copula_", i, "_summer"), bicop(data = pobs(data_merged_rol_summer[, c(i, "drainage_X10304")]), family_set = "archimedean"))
+}
+for (i in vars_21) {
+  assign(paste0("copula_", i, "_summer"), bicop(data = pobs(data_merged_rol_summer[, c(i, "drainage_X10321")]), family_set = "archimedean"))
+}
+for (i in vars_03) {
+  assign(paste0("copula_", i, "_summer"), bicop(data = pobs(data_merged_rol_summer[, c(i, "drainage_X10303")]), family_set = "archimedean"))
+}
+for (i in vars_02) {
+  assign(paste0("copula_", i, "_summer"), bicop(data = pobs(data_merged_rol_summer[, c(i, "drainage_X10302")]), family_set = "archimedean"))
+}
+
+# summary and plots
+# winter, X10304
+summary(copula_rol_airtmp_X10304_winter)
+get_ktau(copula_rol_airtmp_X10304_winter)
+summary(copula_rol_glorad_X10304_winter)
+get_ktau(copula_rol_glorad_X10304_winter)
+summary(copula_rol_groundwaterdepth_X10304_winter)
+get_ktau(copula_rol_groundwaterdepth_X10304_winter)
+summary(copula_rol_precip_X10304_winter)
+get_ktau(copula_rol_precip_X10304_winter)
+summary(copula_rol_qinfiltration_X10304_winter)
+get_ktau(copula_rol_qinfiltration_X10304_winter)
+summary(copula_rol_relhum_X10304_winter)
+get_ktau(copula_rol_relhum_X10304_winter)
+summary(copula_rol_snowstorage_X10304_winter)
+get_ktau(copula_rol_snowstorage_X10304_winter)
+summary(copula_rol_soilwaterrootzone_X10304_winter)
+get_ktau(copula_rol_soilwaterrootzone_X10304_winter)
+summary(copula_rol_soilwaterunsatzone_X10304_winter)
+get_ktau(copula_rol_soilwaterunsatzone_X10304_winter)
+
+contour(copula_rol_airtmp_X10304_winter, xlab = "airtmp_MW", ylab = "drainage_MW")
+contour(copula_rol_glorad_X10304_winter, xlab = "glorad_MW", ylab = "drainage_MW")
+contour(copula_rol_groundwaterdepth_X10304_winter, xlab = "grdepth_MW", ylab = "drainage_MW")
+contour(copula_rol_precip_X10304_winter, xlab = "qinfiltration_MW", ylab = "drainage_MW")
+contour(copula_rol_qinfiltration_X10304_winter, xlab = "qinfiltration_MW", ylab = "drainage_MW")
+contour(copula_rol_relhum_X10304_winter, xlab = "relhum_MW", ylab = "drainage_MW")
+contour(copula_rol_snowstorage_X10304_winter, xlab = "snowstorage_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterrootzone_X10304_winter, xlab = "soilwaterrootzone_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterunsatzone_X10304_winter, xlab = "soilwaterunsatzone_MW", ylab = "drainage_MW")
+
+
+# winter, X10321
+summary(copula_rol_airtmp_X10321_winter)
+get_ktau(copula_rol_airtmp_X10321_winter)
+summary(copula_rol_glorad_X10321_winter)
+get_ktau(copula_rol_glorad_X10321_winter)
+summary(copula_rol_groundwaterdepth_X10321_winter)
+get_ktau(copula_rol_groundwaterdepth_X10321_winter)
+summary(copula_rol_precip_X10321_winter)
+get_ktau(copula_rol_precip_X10321_winter)
+summary(copula_rol_qinfiltration_X10321_winter)
+get_ktau(copula_rol_qinfiltration_X10321_winter)
+summary(copula_rol_relhum_X10321_winter)
+get_ktau(copula_rol_relhum_X10321_winter)
+summary(copula_rol_snowstorage_X10321_winter)
+get_ktau(copula_rol_snowstorage_X10321_winter)
+summary(copula_rol_soilwaterrootzone_X10321_winter)
+get_ktau(copula_rol_soilwaterrootzone_X10321_winter)
+summary(copula_rol_soilwaterunsatzone_X10321_winter)
+get_ktau(copula_rol_soilwaterunsatzone_X10321_winter)
+
+contour(copula_rol_airtmp_X10321_winter, xlab = "airtmp_SD", ylab = "drainage_SD")
+contour(copula_rol_glorad_X10321_winter, xlab = "glorad_SD", ylab = "drainage_SD")
+contour(copula_rol_groundwaterdepth_X10321_winter, xlab = "grdepth_SD", ylab = "drainage_SD")
+contour(copula_rol_precip_X10321_winter, xlab = "qinfiltration_SD", ylab = "drainage_SD")
+contour(copula_rol_qinfiltration_X10321_winter, xlab = "qinfiltration_SD", ylab = "drainage_SD")
+contour(copula_rol_relhum_X10321_winter, xlab = "relhum_SD", ylab = "drainage_SD")
+contour(copula_rol_snowstorage_X10321_winter, xlab = "snowstorage_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterrootzone_X10321_winter, xlab = "soilwaterrootzone_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterunsatzone_X10321_winter, xlab = "soilwaterunsatzone_SD", ylab = "drainage_SD")
+
+# winter, X10303
+summary(copula_rol_airtmp_X10303_winter)
+get_ktau(copula_rol_airtmp_X10303_winter)
+summary(copula_rol_glorad_X10303_winter)
+get_ktau(copula_rol_glorad_X10303_winter)
+summary(copula_rol_groundwaterdepth_X10303_winter)
+get_ktau(copula_rol_groundwaterdepth_X10303_winter)
+summary(copula_rol_precip_X10303_winter)
+get_ktau(copula_rol_precip_X10303_winter)
+summary(copula_rol_qinfiltration_X10303_winter)
+get_ktau(copula_rol_qinfiltration_X10303_winter)
+summary(copula_rol_relhum_X10303_winter)
+get_ktau(copula_rol_relhum_X10303_winter)
+summary(copula_rol_snowstorage_X10303_winter)
+get_ktau(copula_rol_snowstorage_X10303_winter)
+summary(copula_rol_soilwaterrootzone_X10303_winter)
+get_ktau(copula_rol_soilwaterrootzone_X10303_winter)
+summary(copula_rol_soilwaterunsatzone_X10303_winter)
+get_ktau(copula_rol_soilwaterunsatzone_X10303_winter)
+
+contour(copula_rol_airtmp_X10303_winter, xlab = "airtmp_BT", ylab = "drainage_BT")
+contour(copula_rol_glorad_X10303_winter, xlab = "glorad_BT", ylab = "drainage_BT")
+contour(copula_rol_groundwaterdepth_X10303_winter, xlab = "grdepth_BT", ylab = "drainage_BT")
+contour(copula_rol_precip_X10303_winter, xlab = "qinfiltration_BT", ylab = "drainage_BT")
+contour(copula_rol_qinfiltration_X10303_winter, xlab = "qinfiltration_BT", ylab = "drainage_BT")
+contour(copula_rol_relhum_X10303_winter, xlab = "relhum_BT", ylab = "drainage_BT")
+contour(copula_rol_snowstorage_X10303_winter, xlab = "snowstorage_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterrootzone_X10303_winter, xlab = "soilwaterrootzone_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterunsatzone_X10303_winter, xlab = "soilwaterunsatzone_BT", ylab = "drainage_BT")
+
+
+# winter, X10302
+summary(copula_rol_airtmp_X10302_winter)
+get_ktau(copula_rol_airtmp_X10302_winter)
+summary(copula_rol_glorad_X10302_winter)
+get_ktau(copula_rol_glorad_X10302_winter)
+summary(copula_rol_groundwaterdepth_X10302_winter)
+get_ktau(copula_rol_groundwaterdepth_X10302_winter)
+summary(copula_rol_precip_X10302_winter)
+get_ktau(copula_rol_precip_X10302_winter)
+summary(copula_rol_qinfiltration_X10302_winter)
+get_ktau(copula_rol_qinfiltration_X10302_winter)
+summary(copula_rol_relhum_X10302_winter)
+get_ktau(copula_rol_relhum_X10302_winter)
+summary(copula_rol_snowstorage_X10302_winter)
+get_ktau(copula_rol_snowstorage_X10302_winter)
+summary(copula_rol_soilwaterrootzone_X10302_winter)
+get_ktau(copula_rol_soilwaterrootzone_X10302_winter)
+summary(copula_rol_soilwaterunsatzone_X10302_winter)
+get_ktau(copula_rol_soilwaterunsatzone_X10302_winter)
+
+contour(copula_rol_airtmp_X10302_winter, xlab = "airtmp_MU", ylab = "drainage_MU")
+contour(copula_rol_glorad_X10302_winter, xlab = "glorad_MU", ylab = "drainage_MU")
+contour(copula_rol_groundwaterdepth_X10302_winter, xlab = "grdepth_MU", ylab = "drainage_MU")
+contour(copula_rol_precip_X10302_winter, xlab = "qinfiltration_MU", ylab = "drainage_MU")
+contour(copula_rol_qinfiltration_X10302_winter, xlab = "qinfiltration_MU", ylab = "drainage_MU")
+contour(copula_rol_relhum_X10302_winter, xlab = "relhum_MU", ylab = "drainage_MU")
+contour(copula_rol_snowstorage_X10302_winter, xlab = "snowstorage_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterrootzone_X10302_winter, xlab = "soilwaterrootzone_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterunsatzone_X10302_winter, xlab = "soilwaterunsatzone_MU", ylab = "drainage_MU")
+
+
+# summer, X10304
+summary(copula_rol_airtmp_X10304_summer)
+get_ktau(copula_rol_airtmp_X10304_summer)
+summary(copula_rol_glorad_X10304_summer)
+get_ktau(copula_rol_glorad_X10304_summer)
+summary(copula_rol_groundwaterdepth_X10304_summer)
+get_ktau(copula_rol_groundwaterdepth_X10304_summer)
+summary(copula_rol_precip_X10304_summer)
+get_ktau(copula_rol_precip_X10304_summer)
+summary(copula_rol_qinfiltration_X10304_summer)
+get_ktau(copula_rol_qinfiltration_X10304_summer)
+summary(copula_rol_relhum_X10304_summer)
+get_ktau(copula_rol_relhum_X10304_summer)
+summary(copula_rol_snowstorage_X10304_summer)
+get_ktau(copula_rol_snowstorage_X10304_summer)
+summary(copula_rol_soilwaterrootzone_X10304_summer)
+get_ktau(copula_rol_soilwaterrootzone_X10304_summer)
+summary(copula_rol_soilwaterunsatzone_X10304_summer)
+get_ktau(copula_rol_soilwaterunsatzone_X10304_summer)
+
+contour(copula_rol_airtmp_X10304_summer, xlab = "airtmp_MW", ylab = "drainage_MW")
+contour(copula_rol_glorad_X10304_summer, xlab = "glorad_MW", ylab = "drainage_MW")
+contour(copula_rol_groundwaterdepth_X10304_summer, xlab = "grdepth_MW", ylab = "drainage_MW")
+contour(copula_rol_precip_X10304_summer, xlab = "qinfiltration_MW", ylab = "drainage_MW")
+contour(copula_rol_qinfiltration_X10304_summer, xlab = "qinfiltration_MW", ylab = "drainage_MW")
+contour(copula_rol_relhum_X10304_summer, xlab = "relhum_MW", ylab = "drainage_MW")
+contour(copula_rol_snowstorage_X10304_summer, xlab = "snowstorage_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterrootzone_X10304_summer, xlab = "soilwaterrootzone_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterunsatzone_X10304_summer, xlab = "soilwaterunsatzone_MW", ylab = "drainage_MW")
+
+
+# summer, X10321
+summary(copula_rol_airtmp_X10321_summer)
+get_ktau(copula_rol_airtmp_X10321_summer)
+summary(copula_rol_glorad_X10321_summer)
+get_ktau(copula_rol_glorad_X10321_summer)
+summary(copula_rol_groundwaterdepth_X10321_summer)
+get_ktau(copula_rol_groundwaterdepth_X10321_summer)
+summary(copula_rol_precip_X10321_summer)
+get_ktau(copula_rol_precip_X10321_summer)
+summary(copula_rol_qinfiltration_X10321_summer)
+get_ktau(copula_rol_qinfiltration_X10321_summer)
+summary(copula_rol_relhum_X10321_summer)
+get_ktau(copula_rol_relhum_X10321_summer)
+summary(copula_rol_snowstorage_X10321_summer)
+get_ktau(copula_rol_snowstorage_X10321_summer)
+summary(copula_rol_soilwaterrootzone_X10321_summer)
+get_ktau(copula_rol_soilwaterrootzone_X10321_summer)
+summary(copula_rol_soilwaterunsatzone_X10321_summer)
+get_ktau(copula_rol_soilwaterunsatzone_X10321_summer)
+
+contour(copula_rol_airtmp_X10321_summer, xlab = "airtmp_SD", ylab = "drainage_SD")
+contour(copula_rol_glorad_X10321_summer, xlab = "glorad_SD", ylab = "drainage_SD")
+contour(copula_rol_groundwaterdepth_X10321_summer, xlab = "grdepth_SD", ylab = "drainage_SD")
+contour(copula_rol_precip_X10321_summer, xlab = "qinfiltration_SD", ylab = "drainage_SD")
+contour(copula_rol_qinfiltration_X10321_summer, xlab = "qinfiltration_SD", ylab = "drainage_SD")
+contour(copula_rol_relhum_X10321_summer, xlab = "relhum_SD", ylab = "drainage_SD")
+contour(copula_rol_snowstorage_X10321_summer, xlab = "snowstorage_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterrootzone_X10321_summer, xlab = "soilwaterrootzone_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterunsatzone_X10321_summer, xlab = "soilwaterunsatzone_SD", ylab = "drainage_SD")
+
+# summer, X10303
+summary(copula_rol_airtmp_X10303_summer)
+get_ktau(copula_rol_airtmp_X10303_summer)
+summary(copula_rol_glorad_X10303_summer)
+get_ktau(copula_rol_glorad_X10303_summer)
+summary(copula_rol_groundwaterdepth_X10303_summer)
+get_ktau(copula_rol_groundwaterdepth_X10303_summer)
+summary(copula_rol_precip_X10303_summer)
+get_ktau(copula_rol_precip_X10303_summer)
+summary(copula_rol_qinfiltration_X10303_summer)
+get_ktau(copula_rol_qinfiltration_X10303_summer)
+summary(copula_rol_relhum_X10303_summer)
+get_ktau(copula_rol_relhum_X10303_summer)
+summary(copula_rol_snowstorage_X10303_summer)
+get_ktau(copula_rol_snowstorage_X10303_summer)
+summary(copula_rol_soilwaterrootzone_X10303_summer)
+get_ktau(copula_rol_soilwaterrootzone_X10303_summer)
+summary(copula_rol_soilwaterunsatzone_X10303_summer)
+get_ktau(copula_rol_soilwaterunsatzone_X10303_summer)
+
+contour(copula_rol_airtmp_X10303_summer, xlab = "airtmp_BT", ylab = "drainage_BT")
+contour(copula_rol_glorad_X10303_summer, xlab = "glorad_BT", ylab = "drainage_BT")
+contour(copula_rol_groundwaterdepth_X10303_summer, xlab = "grdepth_BT", ylab = "drainage_BT")
+contour(copula_rol_precip_X10303_summer, xlab = "qinfiltration_BT", ylab = "drainage_BT")
+contour(copula_rol_qinfiltration_X10303_summer, xlab = "qinfiltration_BT", ylab = "drainage_BT")
+contour(copula_rol_relhum_X10303_summer, xlab = "relhum_BT", ylab = "drainage_BT")
+contour(copula_rol_snowstorage_X10303_summer, xlab = "snowstorage_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterrootzone_X10303_summer, xlab = "soilwaterrootzone_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterunsatzone_X10303_summer, xlab = "soilwaterunsatzone_BT", ylab = "drainage_BT")
+
+
+# summer, X10302
+summary(copula_rol_airtmp_X10302_summer)
+get_ktau(copula_rol_airtmp_X10302_summer)
+summary(copula_rol_glorad_X10302_summer)
+get_ktau(copula_rol_glorad_X10302_summer)
+summary(copula_rol_groundwaterdepth_X10302_summer)
+get_ktau(copula_rol_groundwaterdepth_X10302_summer)
+summary(copula_rol_precip_X10302_summer)
+get_ktau(copula_rol_precip_X10302_summer)
+summary(copula_rol_qinfiltration_X10302_summer)
+get_ktau(copula_rol_qinfiltration_X10302_summer)
+summary(copula_rol_relhum_X10302_summer)
+get_ktau(copula_rol_relhum_X10302_summer)
+summary(copula_rol_snowstorage_X10302_summer)
+get_ktau(copula_rol_snowstorage_X10302_summer)
+summary(copula_rol_soilwaterrootzone_X10302_summer)
+get_ktau(copula_rol_soilwaterrootzone_X10302_summer)
+summary(copula_rol_soilwaterunsatzone_X10302_summer)
+get_ktau(copula_rol_soilwaterunsatzone_X10302_summer)
+
+contour(copula_rol_airtmp_X10302_summer, xlab = "airtmp_MU", ylab = "drainage_MU")
+contour(copula_rol_glorad_X10302_summer, xlab = "glorad_MU", ylab = "drainage_MU")
+contour(copula_rol_groundwaterdepth_X10302_summer, xlab = "grdepth_MU", ylab = "drainage_MU")
+contour(copula_rol_precip_X10302_summer, xlab = "qinfiltration_MU", ylab = "drainage_MU")
+contour(copula_rol_qinfiltration_X10302_summer, xlab = "qinfiltration_MU", ylab = "drainage_MU")
+contour(copula_rol_relhum_X10302_summer, xlab = "relhum_MU", ylab = "drainage_MU")
+contour(copula_rol_snowstorage_X10302_summer, xlab = "snowstorage_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterrootzone_X10302_summer, xlab = "soilwaterrootzone_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterunsatzone_X10302_summer, xlab = "soilwaterunsatzone_MU", ylab = "drainage_MU")
+
 
 
 
