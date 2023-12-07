@@ -137,7 +137,7 @@ data_scenario_winter_airtmp$drainage_X10302 <- predict(model_winter_ps_intera_02
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   xlim(0, 127) +
   ylim(0, 0.225) +
   theme_bw() +
@@ -146,7 +146,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage
 # after
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   xlim(0, 127) +
   ylim(0, 0.225) +
   theme_bw() +
@@ -163,7 +163,7 @@ length(which(data_scenario_winter_airtmp[!is.na(data_scenario_winter_airtmp$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   xlim(0, 300) +
   ylim(0, 0.1) +
   theme_bw() +
@@ -172,7 +172,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage
 # after
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   xlim(0, 300) +
   ylim(0, 0.1) +
   theme_bw() +
@@ -189,7 +189,7 @@ length(which(data_scenario_winter_airtmp[!is.na(data_scenario_winter_airtmp$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   xlim(0, 600) +
   ylim(0, 0.08) +
   theme_bw() +
@@ -198,7 +198,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage
 # after
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   xlim(0, 600) +
   ylim(0, 0.08) +
   theme_bw() +
@@ -216,7 +216,7 @@ length(which(data_scenario_winter_airtmp[!is.na(data_scenario_winter_airtmp$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   xlim(0, 12500) +
   ylim(0, 0.035) +
   theme_bw() +
@@ -225,7 +225,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage
 # after
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   xlim(0, 12500) +
   ylim(0, 0.035) +
   theme_bw() +
@@ -245,7 +245,7 @@ length(which(data_scenario_winter_airtmp[!is.na(data_scenario_winter_airtmp$drai
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_winter, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   scale_x_continuous(trans = "log10", limits = c(2.5, 126)) + 
   ylim(0, 3) +
   theme_bw() +
@@ -257,7 +257,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_winter, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   scale_x_continuous(trans = "log10", limits = c(2.5, 126)) + 
   ylim(0, 3) +
   theme_bw() +
@@ -270,7 +270,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_winter, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   scale_x_continuous(trans = "log10", limits = c(5, 300)) +
   ylim(0, 3) +
   theme_bw() +
@@ -282,7 +282,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_winter, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   scale_x_continuous(trans = "log10", limits = c(5, 300)) + 
   ylim(0, 3) +
   theme_bw() +
@@ -295,7 +295,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_winter, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   scale_x_continuous(trans = "log10", limits = c(12, 600)) +
   ylim(0, 4) +
   theme_bw() +
@@ -307,7 +307,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_winter, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   scale_x_continuous(trans = "log10", limits = c(12, 600)) +
   ylim(0, 4) +
   theme_bw() +
@@ -321,7 +321,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_airtmp$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_winter, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   scale_x_continuous(trans = "log10", limits = c(30, 13000)) +
   ylim(0, 3.5) +
   theme_bw() +
@@ -333,7 +333,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_airtmp, aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_winter, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   scale_x_continuous(trans = "log10", limits = c(30, 13000)) +
   ylim(0, 3.5) +
   theme_bw() +
@@ -355,7 +355,7 @@ data_scenario_summer_airtmp$drainage_X10302 <- predict(model_summer_ps_intera_02
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   xlim(0, 127) +
   ylim(0, 0.08) +
   theme_bw() +
@@ -364,7 +364,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage
 # after
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   xlim(0, 127) +
   ylim(0, 0.08) +
   theme_bw() +
@@ -381,7 +381,7 @@ length(which(data_scenario_summer_airtmp[!is.na(data_scenario_summer_airtmp$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   xlim(0, 300) +
   ylim(0, 0.045) +
   theme_bw() +
@@ -390,7 +390,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage
 # after
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   xlim(0, 300) +
   ylim(0, 0.045) +
   theme_bw() +
@@ -407,7 +407,7 @@ length(which(data_scenario_summer_airtmp[!is.na(data_scenario_summer_airtmp$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   xlim(0, 540) +
   ylim(0, 0.06) +
   theme_bw() +
@@ -416,7 +416,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage
 # after
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   xlim(0, 540) +
   ylim(0, 0.06) +
   theme_bw() +
@@ -434,7 +434,7 @@ length(which(data_scenario_summer_airtmp[!is.na(data_scenario_summer_airtmp$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   xlim(0, 15000) +
   ylim(0, 0.045) +
   theme_bw() +
@@ -443,7 +443,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage
 # after
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   xlim(0, 15000) +
   ylim(0, 0.045) +
   theme_bw() +
@@ -464,7 +464,7 @@ length(which(data_scenario_summer_airtmp[!is.na(data_scenario_summer_airtmp$drai
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_summer, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   scale_x_continuous(trans = "log10", limits = c(3, 130)) + 
   ylim(0, 2) +
   theme_bw() +
@@ -476,7 +476,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_summer, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   scale_x_continuous(trans = "log10", limits = c(3, 130)) + 
   ylim(0, 2) +
   theme_bw() +
@@ -489,7 +489,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_summer, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   scale_x_continuous(trans = "log10", limits = c(6, 300)) +
   ylim(0, 2.5) +
   theme_bw() +
@@ -501,7 +501,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_summer, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   scale_x_continuous(trans = "log10", limits = c(6, 300)) + 
   ylim(0, 2.5) +
   theme_bw() +
@@ -515,7 +515,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_summer, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   scale_x_continuous(trans = "log10", limits = c(14, 550)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -527,7 +527,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_summer, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   scale_x_continuous(trans = "log10", limits = c(14, 550)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -541,7 +541,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_airtmp$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_summer, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   scale_x_continuous(trans = "log10", limits = c(30, 15000)) +
   ylim(0, 3.5) +
   theme_bw() +
@@ -553,7 +553,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_airtmp, aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_summer, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   scale_x_continuous(trans = "log10", limits = c(30, 15000)) +
   ylim(0, 3.5) +
   theme_bw() +
@@ -610,7 +610,7 @@ data_scenario_winter_precip$drainage_X10302 <- predict(model_winter_ps_intera_02
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   xlim(0, 230) +
   ylim(0, 0.23) +
   theme_bw() +
@@ -619,7 +619,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage
 # after
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   xlim(0, 230) +
   ylim(0, 0.23) +
   theme_bw() +
@@ -636,7 +636,7 @@ length(which(data_scenario_winter_precip[!is.na(data_scenario_winter_precip$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   xlim(0, 545) +
   ylim(0, 0.1) +
   theme_bw() +
@@ -645,7 +645,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage
 # after
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   xlim(0, 545) +
   ylim(0, 0.1) +
   theme_bw() +
@@ -662,7 +662,7 @@ length(which(data_scenario_winter_precip[!is.na(data_scenario_winter_precip$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   xlim(0, 8500) +
   ylim(0, 0.2) +
   theme_bw() +
@@ -671,7 +671,7 @@ ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage
 # after
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   xlim(0, 8500) +
   ylim(0, 0.2) +
   theme_bw() +
@@ -689,14 +689,14 @@ length(which(data_scenario_winter_precip[!is.na(data_scenario_winter_precip$drai
 # before
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   theme_bw() +
   theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 20))
 # after
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   theme_bw() +
   theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 20))
@@ -715,7 +715,7 @@ length(which(data_scenario_winter_precip[!is.na(data_scenario_winter_precip$drai
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_winter, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   scale_x_continuous(trans = "log10", limits = c(2.5, 230)) + 
   ylim(0, 2.8) +
   theme_bw() +
@@ -727,7 +727,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_winter, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, wi") +
   scale_x_continuous(trans = "log10", limits = c(2.5, 230)) + 
   ylim(0, 2.8) +
   theme_bw() +
@@ -740,7 +740,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_winter, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   scale_x_continuous(trans = "log10", limits = c(6, 550)) +
   ylim(0, 2.5) +
   theme_bw() +
@@ -752,7 +752,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_winter, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, wi") +
   scale_x_continuous(trans = "log10", limits = c(6, 550)) + 
   ylim(0, 2.5) +
   theme_bw() +
@@ -765,7 +765,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_winter, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   scale_x_continuous(trans = "log10", limits = c(12, 8500)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -777,7 +777,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_winter, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, wi") +
   scale_x_continuous(trans = "log10", limits = c(12, 8500)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -791,7 +791,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_winter[!is.na(data_scenario_winter_precip$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_winter, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   scale_x_continuous(trans = "log10", limits = c(10, 1e+28)) +
   ylim(0, 3.8) +
   theme_bw() +
@@ -803,7 +803,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_winter_precip, aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_winter, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, wi") +
   scale_x_continuous(trans = "log10", limits = c(10, 1e+28)) +
   ylim(0, 3.8) +
   theme_bw() +
@@ -824,7 +824,7 @@ data_scenario_summer_precip$drainage_X10302 <- predict(model_summer_ps_intera_02
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   xlim(0, 127) +
   ylim(0, 0.072) +
   theme_bw() +
@@ -833,7 +833,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage
 # after
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10304)) +
   geom_density() +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   xlim(0, 127) +
   ylim(0, 0.072) +
   theme_bw() +
@@ -850,7 +850,7 @@ length(which(data_scenario_summer_precip[!is.na(data_scenario_summer_precip$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   xlim(0, 345) +
   ylim(0, 0.046) +
   theme_bw() +
@@ -859,7 +859,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage
 # after
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10321)) +
   geom_density() +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   xlim(0, 345) +
   ylim(0, 0.046) +
   theme_bw() +
@@ -876,7 +876,7 @@ length(which(data_scenario_summer_precip[!is.na(data_scenario_summer_precip$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   xlim(0, 460) +
   ylim(0, 0.06) +
   theme_bw() +
@@ -885,7 +885,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage
 # after
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10303)) +
   geom_density() +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   xlim(0, 460) +
   ylim(0, 0.06) +
   theme_bw() +
@@ -903,7 +903,7 @@ length(which(data_scenario_summer_precip[!is.na(data_scenario_summer_precip$drai
 # before
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   xlim(0, 12750) +
   ylim(0, 0.031) +
   theme_bw() +
@@ -912,7 +912,7 @@ ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage
 # after
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10302)) +
   geom_density() +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   xlim(0, 12750) +
   ylim(0, 0.031) +
   theme_bw() +
@@ -933,7 +933,7 @@ length(which(data_scenario_summer_precip[!is.na(data_scenario_summer_precip$drai
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10304), ], aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_summer, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   scale_x_continuous(trans = "log10", limits = c(3.5, 128)) + 
   ylim(0, 1.9) +
   theme_bw() +
@@ -945,7 +945,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10304)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10304_summer, col = "blue") +
-  labs(x = "drainage_MW") +
+  labs(x = "drainage, MW, su") +
   scale_x_continuous(trans = "log10", limits = c(3.5, 128)) + 
   ylim(0, 1.9) +
   theme_bw() +
@@ -958,7 +958,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10321), ], aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_summer, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   scale_x_continuous(trans = "log10", limits = c(6.5, 345)) +
   ylim(0, 2.3) +
   theme_bw() +
@@ -970,7 +970,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10321)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10321_summer, col = "blue") +
-  labs(x = "drainage_SD") +
+  labs(x = "drainage, SD, su") +
   scale_x_continuous(trans = "log10", limits = c(6.5, 345)) + 
   ylim(0, 2.3) +
   theme_bw() +
@@ -984,7 +984,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10303), ], aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_summer, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   scale_x_continuous(trans = "log10", limits = c(14, 460)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -996,7 +996,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10303)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10303_summer, col = "blue") +
-  labs(x = "drainage_BT") +
+  labs(x = "drainage, BT, su") +
   scale_x_continuous(trans = "log10", limits = c(14, 460)) +
   ylim(0, 3.75) +
   theme_bw() +
@@ -1010,7 +1010,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_merged_rol_summer[!is.na(data_scenario_summer_precip$drainage_X10302), ], aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_summer, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   scale_x_continuous(trans = "log10", limits = c(30, 12720)) +
   ylim(0, 3.1) +
   theme_bw() +
@@ -1022,10 +1022,11 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_scenario_summer_precip, aes(x = drainage_X10302)) +
   geom_density() +
   geom_vline(xintercept = NM7Q_X10302_summer, col = "blue") +
-  labs(x = "drainage_MU") +
+  labs(x = "drainage, MU, su") +
   scale_x_continuous(trans = "log10", limits = c(30, 12720)) +
   ylim(0, 3.1) +
   theme_bw() +
   theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 20))
 ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/eval/scenarios/precip_summer_X10302_after_log.pdf"), width = 6, height = 4.5)
+

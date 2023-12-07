@@ -110,7 +110,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum air temperature",
+  labs(y = "minimum airtmp",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -124,7 +124,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean air temperature",
+  labs(y = "mean airtmp",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -138,7 +138,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_airtmp, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum air temperature",
+  labs(y = "maximum airtmp",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -153,7 +153,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum gloabel radiation",
+  labs(y = "minimum glorad",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -167,7 +167,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean global radiation",
+  labs(y = "mean glorad",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -181,7 +181,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_glorad, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum gloabal radiation",
+  labs(y = "maximum glorad",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -196,7 +196,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum groundwater depth",
+  labs(y = "minimum grdepth",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -210,7 +210,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean groundwater depth",
+  labs(y = "mean grdepth",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -224,7 +224,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_groundwaterdepth, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum groundwater depth",
+  labs(y = "maximum grdepth",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -239,7 +239,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum precipitation",
+  labs(y = "minimum precip",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -253,7 +253,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean precipitation",
+  labs(y = "mean precip",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -267,7 +267,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_precip, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum precipitation",
+  labs(y = "maximum precip",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -282,7 +282,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum infiltration",
+  labs(y = "minimum qinfil",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -296,7 +296,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean infiltration",
+  labs(y = "mean qinfil",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -310,7 +310,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_qinfiltration, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum infiltration",
+  labs(y = "maximum qinfil",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -325,7 +325,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum relative humidity",
+  labs(y = "minimum relhum",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -339,7 +339,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean relative humidity",
+  labs(y = "mean relhum",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -353,7 +353,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_relhum, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum relative humidity",
+  labs(y = "maximum relhum",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -368,7 +368,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum snow storage",
+  labs(y = "minimum snow",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -382,7 +382,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean snow storage",
+  labs(y = "mean snow",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -396,7 +396,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_snowstorage, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum snow storage",
+  labs(y = "maximum snow",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -411,7 +411,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum soil water in root zone",
+  labs(y = "minimum soilroot",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -425,7 +425,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean soil water in root zone",
+  labs(y = "mean soilroot",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -439,7 +439,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_soilwaterrootzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum soil water in root zone",
+  labs(y = "maximum soilroot",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -454,7 +454,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = min_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = min_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "minimum soil water in unsatisfied zone",
+  labs(y = "minimum soilunsat",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -468,7 +468,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = mean_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = mean_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "mean soil water in unsatisfied zone",
+  labs(y = "mean soilunsat",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -482,7 +482,7 @@ ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarb
 ggplot(data = data_table) +
   geom_line(mapping = aes(x = YY, y = max_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
   geom_point(mapping = aes(x = YY, y = max_soilwaterunsatzone, color = factor(catchment, levels = c("X10304", "X10321", "X10303", "X10302")))) +
-  labs(y = "maximum soil water in unsatisfied zone",
+  labs(y = "maximum soilunsat",
        x = "year") +
   theme_bw() +
   theme(text = element_text(size = 30),
@@ -564,7 +564,7 @@ contour(copula_rol_qinfiltration_X10304_winter, xlab = "qinfiltration_MW", ylab 
 contour(copula_rol_relhum_X10304_winter, xlab = "relhum_MW", ylab = "drainage_MW")
 contour(copula_rol_snowstorage_X10304_winter, xlab = "snowstorage_MW", ylab = "drainage_MW")
 contour(copula_rol_soilwaterrootzone_X10304_winter, xlab = "soilwaterrootzone_MW", ylab = "drainage_MW")
-contour(copula_rol_soilwaterunsatzone_X10304_winter, xlab = "soilwaterunsatzone_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterunsatzone_X10304_winter, xlab = "soilunsat_MW", ylab = "drainage_MW")
 
 
 # winter, X10321
@@ -595,7 +595,7 @@ contour(copula_rol_qinfiltration_X10321_winter, xlab = "qinfiltration_SD", ylab 
 contour(copula_rol_relhum_X10321_winter, xlab = "relhum_SD", ylab = "drainage_SD")
 contour(copula_rol_snowstorage_X10321_winter, xlab = "snowstorage_SD", ylab = "drainage_SD")
 contour(copula_rol_soilwaterrootzone_X10321_winter, xlab = "soilwaterrootzone_SD", ylab = "drainage_SD")
-contour(copula_rol_soilwaterunsatzone_X10321_winter, xlab = "soilwaterunsatzone_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterunsatzone_X10321_winter, xlab = "soilunsat_SD", ylab = "drainage_SD")
 
 # winter, X10303
 summary(copula_rol_airtmp_X10303_winter)
@@ -625,7 +625,7 @@ contour(copula_rol_qinfiltration_X10303_winter, xlab = "qinfiltration_BT", ylab 
 contour(copula_rol_relhum_X10303_winter, xlab = "relhum_BT", ylab = "drainage_BT")
 contour(copula_rol_snowstorage_X10303_winter, xlab = "snowstorage_BT", ylab = "drainage_BT")
 contour(copula_rol_soilwaterrootzone_X10303_winter, xlab = "soilwaterrootzone_BT", ylab = "drainage_BT")
-contour(copula_rol_soilwaterunsatzone_X10303_winter, xlab = "soilwaterunsatzone_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterunsatzone_X10303_winter, xlab = "soilunsat_BT", ylab = "drainage_BT")
 
 
 # winter, X10302
@@ -656,7 +656,7 @@ contour(copula_rol_qinfiltration_X10302_winter, xlab = "qinfiltration_MU", ylab 
 contour(copula_rol_relhum_X10302_winter, xlab = "relhum_MU", ylab = "drainage_MU")
 contour(copula_rol_snowstorage_X10302_winter, xlab = "snowstorage_MU", ylab = "drainage_MU")
 contour(copula_rol_soilwaterrootzone_X10302_winter, xlab = "soilwaterrootzone_MU", ylab = "drainage_MU")
-contour(copula_rol_soilwaterunsatzone_X10302_winter, xlab = "soilwaterunsatzone_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterunsatzone_X10302_winter, xlab = "soilunsat_MU", ylab = "drainage_MU")
 
 
 # summer, X10304
@@ -687,7 +687,7 @@ contour(copula_rol_qinfiltration_X10304_summer, xlab = "qinfiltration_MW", ylab 
 contour(copula_rol_relhum_X10304_summer, xlab = "relhum_MW", ylab = "drainage_MW")
 contour(copula_rol_snowstorage_X10304_summer, xlab = "snowstorage_MW", ylab = "drainage_MW")
 contour(copula_rol_soilwaterrootzone_X10304_summer, xlab = "soilwaterrootzone_MW", ylab = "drainage_MW")
-contour(copula_rol_soilwaterunsatzone_X10304_summer, xlab = "soilwaterunsatzone_MW", ylab = "drainage_MW")
+contour(copula_rol_soilwaterunsatzone_X10304_summer, xlab = "soilunsat_MW", ylab = "drainage_MW")
 
 
 # summer, X10321
@@ -718,7 +718,7 @@ contour(copula_rol_qinfiltration_X10321_summer, xlab = "qinfiltration_SD", ylab 
 contour(copula_rol_relhum_X10321_summer, xlab = "relhum_SD", ylab = "drainage_SD")
 contour(copula_rol_snowstorage_X10321_summer, xlab = "snowstorage_SD", ylab = "drainage_SD")
 contour(copula_rol_soilwaterrootzone_X10321_summer, xlab = "soilwaterrootzone_SD", ylab = "drainage_SD")
-contour(copula_rol_soilwaterunsatzone_X10321_summer, xlab = "soilwaterunsatzone_SD", ylab = "drainage_SD")
+contour(copula_rol_soilwaterunsatzone_X10321_summer, xlab = "soilunsat_SD", ylab = "drainage_SD")
 
 # summer, X10303
 summary(copula_rol_airtmp_X10303_summer)
@@ -748,7 +748,7 @@ contour(copula_rol_qinfiltration_X10303_summer, xlab = "qinfiltration_BT", ylab 
 contour(copula_rol_relhum_X10303_summer, xlab = "relhum_BT", ylab = "drainage_BT")
 contour(copula_rol_snowstorage_X10303_summer, xlab = "snowstorage_BT", ylab = "drainage_BT")
 contour(copula_rol_soilwaterrootzone_X10303_summer, xlab = "soilwaterrootzone_BT", ylab = "drainage_BT")
-contour(copula_rol_soilwaterunsatzone_X10303_summer, xlab = "soilwaterunsatzone_BT", ylab = "drainage_BT")
+contour(copula_rol_soilwaterunsatzone_X10303_summer, xlab = "soilunsat_BT", ylab = "drainage_BT")
 
 
 # summer, X10302
@@ -779,7 +779,7 @@ contour(copula_rol_qinfiltration_X10302_summer, xlab = "qinfiltration_MU", ylab 
 contour(copula_rol_relhum_X10302_summer, xlab = "relhum_MU", ylab = "drainage_MU")
 contour(copula_rol_snowstorage_X10302_summer, xlab = "snowstorage_MU", ylab = "drainage_MU")
 contour(copula_rol_soilwaterrootzone_X10302_summer, xlab = "soilwaterrootzone_MU", ylab = "drainage_MU")
-contour(copula_rol_soilwaterunsatzone_X10302_summer, xlab = "soilwaterunsatzone_MU", ylab = "drainage_MU")
+contour(copula_rol_soilwaterunsatzone_X10302_summer, xlab = "soilunsat_MU", ylab = "drainage_MU")
 
 
 
@@ -854,22 +854,24 @@ rownames(lower_tail_depend_summer) <- catchments
 # generate plots
 vars <- c("airtmp", "glorad", "groundwaterdepth", "precip", "qinfiltration",
              "relhum", "snowstorage", "soilwaterrootzone", "soilwaterunsatzone")
+vars_names <- c("airtmp", "glorad", "grdepth", "precip", "qinfil",
+                "relhum", "snow", "soilroot", "soilunsat")
 catchments <- c("X10304", "X10321", "X10303", "X10302")
 catchments_names <- c("MW", "SD", "BT", "MU")
 
 for (i in vars) {
   for (j in 1:length(catchments)) {
     lower_tail_depend(data = data_merged_rol_winter, var = paste0("rol_", i, "_", catchments[j]), catchment = catchments[j],
-                      quant = 0.1, xlab = paste0(i, "_", catchments_names[j]), ylab = paste0("drainage_", catchments_names[j]), plot = TRUE)
-    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_winter_", i, "_", catchments[j], ".pdf"), width = 12, height = 9)
+                      quant = 0.1, xlab = paste0(vars_names[which(vars == i)], ", ", catchments_names[j], ", wi"), ylab = paste0("drainage, ", catchments_names[j], ", wi"), plot = TRUE)
+    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_winter_", i, "_", catchments[j], ".pdf"), width = 6, height = 4.5)
   }
 }
 
 for (i in vars) {
   for (j in 1:length(catchments)) {
     lower_tail_depend(data = data_merged_rol_summer, var = paste0("rol_", i, "_", catchments[j]), catchment = catchments[j],
-                      quant = 0.1, xlab = paste0(i, "_", catchments_names[j]), ylab = paste0("drainage_", catchments_names[j]), plot = TRUE)
-    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_summer_", i, "_", catchments[j], ".pdf"), width = 12, height = 9)
+                      quant = 0.1, xlab = paste0(vars_names[which(vars == i)], ", ", catchments_names[j], ", su"), ylab = paste0("drainage, ", catchments_names[j], ", su"), plot = TRUE)
+    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_summer_", i, "_", catchments[j], ".pdf"), width = 6, height = 4.5)
   }
 }
 
@@ -882,13 +884,13 @@ ggplot(na.omit(data_merged_rol_winter), aes(x = rol_airtmp_X10303, y = drainage_
   geom_vline(xintercept = quantile(na.omit(data_merged_rol_winter)[, "rol_airtmp_X10303"], 0.1)) +
   scale_color_manual(values=c("white", "orange")) +
   ylim(0, 120) +
-  labs(x = "airtmp_BT", y = "drainage_BT") +
+  labs(x = "airtmp, BT, wi", y = "drainage, BT, wi") +
   theme_bw() +
   theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 20),
         legend.title = element_text(size = 20),
         legend.text = element_text(size = 20))
-ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_winter_airtmp_X10303_cut.pdf"), width = 12, height = 9)
+ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/lower_winter_airtmp_X10303_cut.pdf"), width = 9, height = 6)
   
 
 
@@ -955,22 +957,24 @@ rownames(upper_tail_depend_summer) <- catchments
 # generate plots
 vars <- c("airtmp", "glorad", "groundwaterdepth", "precip", "qinfiltration",
           "relhum", "snowstorage", "soilwaterrootzone", "soilwaterunsatzone")
+vars_names <- c("airtmp", "glorad", "grdepth", "precip", "qinfil",
+          "relhum", "snow", "soilroot", "soilunsat")
 catchments <- c("X10304", "X10321", "X10303", "X10302")
 catchments_names <- c("MW", "SD", "BT", "MU")
 
 for (i in vars) {
   for (j in 1:length(catchments)) {
     upper_tail_depend(data = data_merged_rol_winter, var = paste0("rol_", i, "_", catchments[j]), catchment = catchments[j],
-                      quant = 0.9, xlab = paste0(i, "_", catchments_names[j]), ylab = paste0("drainage_", catchments_names[j]), plot = TRUE)
-    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_winter_", i, "_", catchments[j], ".pdf"), width = 12, height = 9)
+                      quant = 0.9, xlab = paste0(vars_names[which(vars == i)], ", ", catchments_names[j], ", wi"), ylab = paste0("drainage, ", catchments_names[j], ", wi"), plot = TRUE)
+    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_winter_", i, "_", catchments[j], ".pdf"), width = 6, height = 4.5)
   }
 }
 
 for (i in vars) {
   for (j in 1:length(catchments)) {
     upper_tail_depend(data = data_merged_rol_summer, var = paste0("rol_", i, "_", catchments[j]), catchment = catchments[j],
-                      quant = 0.9, xlab = paste0(i, "_", catchments_names[j]), ylab = paste0("drainage_", catchments_names[j]), plot = TRUE)
-    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_summer_", i, "_", catchments[j], ".pdf"), width = 12, height = 9)
+                      quant = 0.9, xlab = paste0(vars_names[which(vars == i)], ", ", catchments_names[j], ", su"), ylab = paste0("drainage, ", catchments_names[j], ", su"), plot = TRUE)
+    ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_summer_", i, "_", catchments[j], ".pdf"), width = 6, height = 4.5)
   }
 }
 
@@ -984,13 +988,13 @@ ggplot(na.omit(data_merged_rol_winter), aes(x = rol_airtmp_X10303, y = drainage_
   geom_vline(xintercept = quantile(na.omit(data_merged_rol_winter)[, "rol_airtmp_X10303"], 0.9)) +
   scale_color_manual(values=c("white", "orange")) +
   ylim(0, 160) +
-  labs(x = "airtmp_BT", y = "drainage_BT") +
+  labs(x = "airtmp, BT, wi", y = "drainage, BT, wi") +
   theme_bw() +
   theme(axis.title = element_text(size = 20),
         axis.text = element_text(size = 20),
         legend.title = element_text(size = 20),
         legend.text = element_text(size = 20))
-ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_winter_airtmp_X10303_cut.pdf"), width = 12, height = 9)
+ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/descriptive_analysis/tail_depend/upper_winter_airtmp_X10303_cut.pdf"), width = 9, height = 6)
 
 
 # catchment maps

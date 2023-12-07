@@ -118,7 +118,7 @@ plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
       geom_abline(intercept = 0, slope = 1) +
       xlim(xlim_l, xlim_u) +
       ylim(ylim_l, ylim_u) +
-      labs(x = "observed drainage", y = "predicted", title = title) +
+      labs(x = "observed drainage", y = "predicted drainage", title = title) +
       theme_bw() +
       theme(axis.title = element_text(size = 20),
             axis.text = element_text(size = 20),
@@ -130,7 +130,7 @@ plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
       geom_vline(xintercept = get(paste0("NM7Q_", catchment, "_", halfyear)), col = "blue") +
       geom_abline(intercept = 0, slope = 1) +
       ylim(ylim_l, ylim_u) +
-      labs(x = "observed drainage", y = "predicted", title = title) +
+      labs(x = "observed drainage", y = "predicted drainage", title = title) +
       theme_bw() +
       theme(axis.title = element_text(size = 20),
             axis.text = element_text(size = 20),
@@ -142,7 +142,7 @@ plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
       geom_vline(xintercept = get(paste0("NM7Q_", catchment, "_", halfyear)), col = "blue") +
       geom_abline(intercept = 0, slope = 1) +
       xlim(xlim_l, xlim_u) +
-      labs(x = "observed drainage", y = "predicted", title = title) +
+      labs(x = "observed drainage", y = "predicted drainage", title = title) +
       theme_bw() +
       theme(axis.title = element_text(size = 20),
             axis.text = element_text(size = 20),
@@ -153,7 +153,7 @@ plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
       ggdensity::geom_hdr(probs = probs_tmp) +
       geom_vline(xintercept = get(paste0("NM7Q_", catchment, "_", halfyear)), col = "blue") +
       geom_abline(intercept = 0, slope = 1) +
-      labs(x = "observed drainage", y = "predicted", title = title) +
+      labs(x = "observed drainage", y = "predicted drainage", title = title) +
       theme_bw() +
       theme(axis.title = element_text(size = 20),
             axis.text = element_text(size = 20),
