@@ -95,7 +95,7 @@ mse_all_summer_ps_intera_21_kbo <- res_mse_all_kbo(data_obs_res_kbo = data_res_s
 # Summer, Bad Tölz
 data_res_summer_ps_intera_03_kbo <- data_obs_res_kbo(model = model_summer_ps_intera_03, data_kbo = data_merged_rol_summer_kbo, catchment = "X10303")
 plot_obs_pred_kbo(data_obs_res_kbo = data_res_summer_ps_intera_03_kbo, halfyear = "summer", catchment = "X10303",
-                  title = "", all = TRUE, xlim_l = 0, xlim_u = 3150, ylim_l = 0, ylim_u = 3150)
+                  title = "", all = TRUE, xlim_l = 0, xlim_u = 430, ylim_l = 0, ylim_u = 3150)
 ggsave(paste0("C:/Users/lisak/OneDrive/Dokumente/Studium/7. Semester/Bachelorarbeit/plots/eval/predictions/pred_summer_X10303.pdf"), width = 6.5, height = 6)
 plot_obs_pred_kbo(data_obs_res_kbo = data_res_summer_ps_intera_03_kbo, halfyear = "summer", catchment = "X10303",
                   title = "", all = TRUE, xlim_l = 0, xlim_u = 400, ylim_l = 0, ylim_u = 400)
