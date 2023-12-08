@@ -1,20 +1,24 @@
+# create dataset with observed values and residuals
 data_obs_res <- function(model, data, catchment) {
   data.frame(obs = na.omit(data)[, paste0("drainage_", catchment)],
              res = na.omit(data)[, paste0("drainage_", catchment)] - model$fitted.values)
 }
 
+# create dataset with observed values and residuals for member kbj
 data_obs_res_kbj <- function(model, data_kbj, catchment) {
   data_tmp <- data.frame(obs = na.omit(data_kbj)[, paste0("drainage_", catchment)],
                          pred = predict(model, na.omit(data_kbj), type="response"))
   cbind(data_tmp, res = data_tmp$obs - data_tmp$pred)
 }
 
+# create dataset with observed values and residuals for member kbo
 data_obs_res_kbo <- function(model, data_kbo, catchment) {
   data_tmp <- data.frame(obs = na.omit(data_kbo)[, paste0("drainage_", catchment)],
                          pred = predict(model, na.omit(data_kbo), type="response"))
   cbind(data_tmp, res = data_tmp$obs - data_tmp$pred)
 }
 
+# plot residuals vs. observed
 plot_obs_res <- function(data_obs_res, halfyear, catchment, title,
                          ylim_l = NULL, ylim_u = NULL, xlim_l = NULL, xlim_u = NULL, all = FALSE) {
   if (all == TRUE) {
@@ -59,6 +63,7 @@ plot_obs_res <- function(data_obs_res, halfyear, catchment, title,
   print(plot_tmp)
 }
 
+# plot residuals vs. observed for member kbj
 plot_obs_res_kbj <- function(data_obs_res_kbj, halfyear, catchment, title,
                              ylim_l = NULL, ylim_u = NULL, xlim_l = NULL, xlim_u = NULL, all = FALSE) {
   if (all == TRUE) {
@@ -103,6 +108,7 @@ plot_obs_res_kbj <- function(data_obs_res_kbj, halfyear, catchment, title,
   print(plot_tmp)
 }
 
+# plot predicted vs. observed for member kbo
 plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
                              ylim_l = NULL, ylim_u = NULL, xlim_l = NULL, xlim_u = NULL, all = FALSE) {
   if (all == TRUE) {
@@ -163,21 +169,24 @@ plot_obs_pred_kbo <- function(data_obs_res_kbo, halfyear, catchment, title,
   print(plot_tmp)
 }
 
+# MSE for low drainage values for member kbj
 res_mse_kbj <- function(data_obs_res_kbj, halfyear, catchment) {
   NM7Q_tmp <- get(paste0("NM7Q_", catchment, "_", halfyear))
   mean((data_obs_res_kbj[data_obs_res_kbj$obs <= NM7Q_tmp, ]$res)^2)
 }
 
+# MSE for low drainage values for member kbo
 res_mse_kbo <- function(data_obs_res_kbo, halfyear, catchment) {
   NM7Q_tmp <- get(paste0("NM7Q_", catchment, "_", halfyear))
   mean((data_obs_res_kbo[data_obs_res_kbo$obs <= NM7Q_tmp, ]$res)^2)
 }
 
+# MSE for all observations for member kbj
 res_mse_all_kbo <- function(data_obs_res_kbo, halfyear, catchment) {
   mean((data_obs_res_kbo$res)^2)
 }
 
-
+# find model with interaction that minimizes the MSE for low drainage values
 find_best_interac <- function(vars, formula_chr, data, data_kbj, family, catchment, halfyear) {
   gam_best_list <- list()
   gam_best_mse <- numeric()
