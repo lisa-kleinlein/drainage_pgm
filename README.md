@@ -8,7 +8,7 @@ How do climatological and hydrological variables influence river drainage in fou
 
 Climex-II data from the Geography Department of the LMU, which is not publicly available.
 
-Simulated data at 4 river gauges in Mittenwald, Bad Tölz and Munich (located at the Isar river) and Schlehdorf  (located at the Loisach river) between 1981 and 2010; 3-hourly values of drainage, air temperature, global radiation, groundwater depth, precipitation, infiltration, relative humidity, snow sotrage, soil water in the root zone and soil water in the unsaturated zone (influencing variables as rolling means for different number of days).
+Simulated data at 4 river gauges in Mittenwald, Bad Tölz and Munich (located at the Isar river) and Schlehdorf  (located at the Loisach river) between 1981 and 2010; 3-hourly values of drainage, air temperature, global radiation, groundwater depth, precipitation, infiltration, relative humidity, snow storage, soil water in the root zone and soil water in the unsaturated zone (influencing variables as rolling means for different number of days).
 
 ## Used Methods
 
